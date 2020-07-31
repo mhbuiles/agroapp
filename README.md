@@ -1,4 +1,10 @@
+
+
 # Agroapp
+
+###recursos
+Trello: https://trello.com/b/DzCXfBR6/agroapp
+
 
 ## App del Campo a tu Casa.
 
