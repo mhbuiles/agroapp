@@ -2,7 +2,7 @@
 
 # Agroapp
 
-###recursos
+recursos
 Trello: https://trello.com/b/DzCXfBR6/agroapp
 
 
