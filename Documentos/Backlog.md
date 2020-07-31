@@ -8,7 +8,6 @@ Creación del backlog para el proyecto.
 - Implementar creación de ingreso de foto de perfil recién tomada
 - Implementar creación de ingreso de foto de cédula de ciudadanía.
 - Implementar captura de datos bancarios
-	- In
 - *Si es productor*:
 	- Implementar creación de tipo de producto
 	- Implementar creación de tipo de 
