@@ -36,7 +36,7 @@ class ProductorForm extends React.Component{
         </fieldset>
 
         <button type="submit">Registrarse</button>
-        
+
       </form>
       </div>
     )
