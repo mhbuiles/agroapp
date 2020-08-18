@@ -21,7 +21,7 @@ function Menu(){
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Link to = '/' className="nav-link">Página de inicio</Link>
-                        <Link to = '/producerProfile' className="nav-link">Mi perfil</Link>                        
+                        <Link to = '/UserProfile' className="nav-link">Mi perfil</Link>                        
                         <NavDropdown title="Link dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

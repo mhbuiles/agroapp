@@ -1,7 +1,9 @@
 import React from 'react';
 import Authentication from './Authentication';
 import {mockusers} from './mock';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+
 
 const HomeImg = styled.div`
     width: 100%;
@@ -19,6 +21,21 @@ const LoginCont = styled.div`
     align-items: center;
     color: #fff;
 `
+const ButtonRegister = styled.button`
+  width: 130px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+`
+
+const Title = styled.h1`
+  font-weight: 600;
+  color: white;
+  text-shadow: 0px 0px 12px #333;
+`
 
 
 
@@ -26,9 +43,12 @@ function Home() {
   return (
     <HomeImg>     
       <LoginCont> 
-        <h1>Bienvenido a Agroapp</h1>
-        <h3>Iniciar sesión</h3>
+        <Title>Bienvenido a Agroapp</Title>
+        <Title>Iniciar sesión</Title>
         <Authentication users = {mockusers}>Ingresar a mi perfil</Authentication>
+        <ButtonRegister>
+          <Link to = "/RegisterForm">Regístrate</Link>
+        </ButtonRegister>
       </LoginCont>      
     </HomeImg>
   )

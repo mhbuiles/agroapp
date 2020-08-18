@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* ESTILOS PROPIOS */
+
+.flexible-col{
+  display: flex;
+  flex-direction: column;
+}
+.flexible-row{
+  display: flex;
+  flex-direction: row;
+}
+.align-items-center{
+  align-items: center;
+}
+.justify-content-center{
+  justify-content: center;
+}

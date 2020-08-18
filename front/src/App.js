@@ -11,29 +11,37 @@ import {
   Link,
   Redirect,
 } from 'react-router-dom';
-import ProductorForm from './components/ProductorForm';
+import RegisterForm from './components/RegisterForm';
 import TransporterForm from './components/TransporterForm';
 import CustomerForm from './components/CustomerForm';
 import ProducerPL from './components/ProducerPL';
 import ProducerTL from './components/ProducerTL';
-import ProducerProfile from './components/ProducerProfile';
+import UserProfile from './components/UserProfile';
 import NewProduct from './components/NewProduct';
+
+function test(){
+  return(
+    <h1>NO ESTAS REGISTRADO NO ESTAS REGISTRADO NO ESTAS REGISTRADO
+      NO ESTAS REGISTRADO NO ESTAS REGISTRADO NO ESTAS REGISTRADO
+    </h1>
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <Router>       
+      <Router>   
+        <Menu />    
         <Switch>
           <Route exact path = '/' component = {Home}></Route>
           <Route exact path = '/ProductList' component = {ProductsList}></Route>
-          <Route exact path = '/ProductorForm' component = {ProductorForm}></Route>
-          <Route exact path = '/TransporterForm' component = {TransporterForm}></Route>
-          <Route exact path = '/CustomerForm' component = {CustomerForm}></Route>
-          <Route exact path = '/ProducerProfile' component = {ProducerProfile}></Route>
+          <Route exact path = '/RegisterForm' component = {RegisterForm}></Route>          
+          <Route exact path = '/UserProfile' component = {UserProfile}></Route>
           <Route exact path = '/ProducerPL' component = {ProducerPL}></Route>
           <Route exact path = '/ProducerTL' component = {ProducerTL}></Route>
           <Route exact path = '/NewProduct' component = {NewProduct}></Route>
-          <Redirect from = '*' to = '/'></Redirect>
+          <Route exact path = '/test' component = {test}></Route>
+          <Redirect from = '*' to = '/'></Redirect>          
         </Switch>
       </Router>
     </div>
