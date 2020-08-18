@@ -23,8 +23,8 @@ class ProducerProfile extends React.Component {
         <Link to = '/ProducerTL'>Mis transacciones</Link>
         <hr />
         <fieldset>
-          <Link to = '/Home'>Regresar</Link>
-          <Link to = '/CustomerForm'>Editar perfil</Link>
+          <button><Link to = '/Home'>Regresar</Link></button>
+          <button><Link to = '/CustomerForm'>Editar perfil</Link></button>
         </fieldset>
         <fieldset>
           <button>Eliminar cuenta</button>

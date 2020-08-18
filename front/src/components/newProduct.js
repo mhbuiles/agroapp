@@ -5,12 +5,13 @@ import {
 import uuid from 'uuid-random';
 import {mockproducts} from './mock';
 
-class newProduct extends React.Component {
+class NewProduct extends React.Component {
 
   state = {
       name : '',
       price : 0,
       per : '',
+      picture : '',
   }
 
   handleChange = (event) => {
@@ -26,16 +27,16 @@ class newProduct extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.addProduct(this.state);
-    this.setState({ name : "" , price : 0 , per : '' });
+    this.setState({ name : "" , price : 0 , per : '' , picture : '' });
     console.log(mockproducts);
   }
 
   addProduct = (product) => {
-    let newProduct = {
+    let newProd = {
       id : uuid(),
       ...product
     }
-    mockproducts.push(newProduct);
+    mockproducts.push(newProd);
   }
 
   render() {
@@ -43,24 +44,28 @@ class newProduct extends React.Component {
       <div>
         <form onSubmit = {this.handleSubmit}>
           <fieldset>
-            <label htmlFor = "name">Nombre del producto</label>
+            <label htmlFor = 'name' >Nombre del producto </label>
             <input onChange = {this.handleChange} type = "text" id = "name" name = "name" value = {this.state.name}></input>
           </fieldset>
           <fieldset>
-            <label>Precio por unidad de medida</label>
+            <label htmlFor = 'price' >Precio por unidad de medida </label>
             <input onChange = {this.handleChange} type = 'number' id = "price" name = "price" value = {this.state.price}></input>
           </fieldset>
           <fieldset>
-            <label>Unidad de medida</label>
+            <label htmlFor = 'per' >Unidad de medida </label>
             <input onChange = {this.handleChange} type = 'text' id = "per" name = "per" value = {this.state.per}></input>
           </fieldset>
-          <button>Submit</button>
+          <fieldset>
+            <label htmlFor = 'picture' >Agregar una imagen </label>
+            <input onChange = {this.handleChange} type = 'file' id = "picture" name = "picture" value = {this.state.picture}></input>
+          </fieldset>
+          <button>Agregar producto</button>
         </form>
-        <Link to = '/ProducerPl'>Ir a mis productos</Link>
+        <button><Link to = '/ProducerPl'>Ir a mis productos</Link></button>
       </div>
     )
   }
-  
+
 }
 
-export default newProduct;
+export default NewProduct;

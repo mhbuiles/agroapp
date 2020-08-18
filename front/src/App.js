@@ -16,7 +16,7 @@ import ProducerPL from './components/ProducerPL';
 import ProducerTL from './components/ProducerTL';
 import ProducerProfile from './components/ProducerProfile';
 import Home from './components/Home';
-import newProduct from './components/newProduct'
+import NewProduct from './components/NewProduct';
 
 function App() {
   return (
@@ -27,13 +27,13 @@ function App() {
       </nav>
       <Switch>
         <Route exact path = '/' component = {Home}></Route>
-        <Route exact path = '/productorForm' component = {ProductorForm}></Route>
-        <Route exact path = '/transporterForm' component = {TransporterForm}></Route>
-        <Route exact path = '/customerForm' component = {CustomerForm}></Route>
-        <Route exact path = '/producerProfile' component = {ProducerProfile}></Route>
-        <Route exact path = '/producerPL' component = {ProducerPL}></Route>
-        <Route exact path = '/producerTL' component = {ProducerTL}></Route>
-        <Route exact path = '/newProduct' component = {newProduct}></Route>
+        <Route exact path = '/ProductorForm' component = {ProductorForm}></Route>
+        <Route exact path = '/TransporterForm' component = {TransporterForm}></Route>
+        <Route exact path = '/CustomerForm' component = {CustomerForm}></Route>
+        <Route exact path = '/ProducerProfile' component = {ProducerProfile}></Route>
+        <Route exact path = '/ProducerPL' component = {ProducerPL}></Route>
+        <Route exact path = '/ProducerTL' component = {ProducerTL}></Route>
+        <Route exact path = '/NewProduct' component = {NewProduct}></Route>
         <Redirect from = '*' to = '/'></Redirect>
       </Switch>
     </Router>

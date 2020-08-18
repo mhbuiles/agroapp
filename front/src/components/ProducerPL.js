@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 import {mockproducts} from './mock';
 import Products from './Products';
-import newProduct from './newProduct';
 
 class ProducerPL extends React.Component {
 
@@ -22,11 +21,11 @@ class ProducerPL extends React.Component {
         <h2>Nombre de usuario</h2>
         <h3>Mis productos</h3>
         <fieldset>
-          <Products products = {mockproducts}></Products>
+          <Products products = {mockproducts} ></Products>
         </fieldset>
         <hr></hr>
-        <Link to = '/ProducerProfile'>Regresar</Link>
-        <Link to = '/newProduct'>Agregar nuevo</Link>
+        <button><Link to = '/ProducerProfile'>Regresar</Link></button>
+        <button><Link to = '/NewProduct'>Agregar nuevo</Link></button>
       </div>
     )
   }
