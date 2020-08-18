@@ -5,6 +5,15 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
+import styled from 'styled-components'
+
+const InputForm = styled.input`
+  text-align: center;
+  margin: 10px auto;
+  width: 270px;
+`
+
+
 
 class Authentication extends React.Component {
 
@@ -31,21 +40,21 @@ class Authentication extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.verifyCredentials(this.state);
-    this.setState({ username : '' , password : '' });
+    this.setState({ username : '' , password : '' });    
   }
 
   render() {
     return (
         <form onSubmit = {this.handleSubmit}>
-          <fieldset>
-            <label htmlFor = 'username' >Correo electrónico o número de celular </label>
-            <input onChange = {this.handleChange} type = "text" id = "username" name = "username" value = {this.state.username}></input>
+          <fieldset>            
+            <InputForm onChange = {this.handleChange} type = "text" id = "username" name = "username" value = {this.state.username} placeholder="Email o Teléfono"></InputForm>
           </fieldset>
-          <fieldset>
-            <label htmlFor = 'password' >Contraseña </label>
-            <input onChange = {this.handleChange} type = 'password' id = "password" name = "password" value = {this.state.password}></input>
+          <fieldset>            
+            <InputForm onChange = {this.handleChange} type = 'password' id = "password" name = "password" value = {this.state.password} placeholder="Contraseña"></InputForm>
           </fieldset>
-          <button>Ingresar</button>
+          <button>
+            <Link to = '/ProductList'>Ingresar</Link>
+          </button>
           </form>
     )
   }

@@ -22,16 +22,10 @@ import NewProduct from './components/NewProduct';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Menu />
-        <Home />
-        <ProductsList />
-        <nav>
-          <Link to = '/'>Página de inicio</Link>
-          <Link to = '/producerProfile'>Mi perfil</Link>
-        </nav>
+      <Router>       
         <Switch>
           <Route exact path = '/' component = {Home}></Route>
+          <Route exact path = '/ProductList' component = {ProductsList}></Route>
           <Route exact path = '/ProductorForm' component = {ProductorForm}></Route>
           <Route exact path = '/TransporterForm' component = {TransporterForm}></Route>
           <Route exact path = '/CustomerForm' component = {CustomerForm}></Route>

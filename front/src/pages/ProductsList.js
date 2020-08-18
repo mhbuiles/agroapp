@@ -3,6 +3,8 @@ import ProductsBuyer from '../components/ProductsBuyer'
 import { ProductosComprador } from './mock.js'
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components'
+import Menu from '../components/Menu';
+
 
 const Container = styled.div`
     width: 300px;
@@ -20,6 +22,7 @@ class ProductsList extends React.Component{
     render(){
         return(
             <div>
+                <Menu />
                 <Container>
                 <Nav className="mr-auto">                    
                     <NavDropdown title="Filtros Productos" id="basic-nav-dropdown">
