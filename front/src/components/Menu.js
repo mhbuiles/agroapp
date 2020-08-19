@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 const HeadMenu = styled.div`
@@ -10,7 +11,7 @@ const HeadMenu = styled.div`
     z-index: 100;
 `
 
-function Menu(){
+function Menu(){    
 
     return(
         <HeadMenu>            
@@ -19,8 +20,8 @@ function Menu(){
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
+                        <Link to = '/' className="nav-link">Página de inicio</Link>
+                        <Link to = '/UserProfile' className="nav-link">Mi perfil</Link>                        
                         <NavDropdown title="Link dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

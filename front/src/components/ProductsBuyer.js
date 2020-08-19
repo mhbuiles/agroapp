@@ -5,7 +5,7 @@ function ProductsBuyer({ products }){
     return(
         <div>
             {products.map((product) => (
-                <ProductBuyer product={product}/>
+                <ProductBuyer key={product.name} product={product}/>
             ))}
         </div>
     );
