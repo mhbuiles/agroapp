@@ -37,18 +37,7 @@ class Authentication extends React.Component {
       name: "jaime",
       contrasena: "12345"
     }
-  }  
-
-  // verifyCredentials = (credentials) => {
-  //   this.props.users.map( user => {
-  //     if ( (user.username === credentials.username) && (user.password === credentials.password) ) {
-  //       console.log(credentials.username)
-        
-  //     }
-  //       console.log(user.username)
-  //   })
-  // }
-  
+  }    
 
   handleChange = (event) => {
     const { value , name } = event.target;
@@ -62,15 +51,6 @@ class Authentication extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();   
-    
-    // this.verifyCredentials(this.state);      
-
-    // if(this.state.username === this.state.credentials.name){
-    //   console.log("es verdad");
-    // }else{
-    //   console.log("mintió");
-    // }
-
     this.setState({ username : '' , password : '' });    
   }
 
