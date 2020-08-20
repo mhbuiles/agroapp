@@ -13,24 +13,15 @@ class Authentication extends React.Component {
     password : '',
   }
 
-  verifyCredentials = (credentials) => {
-    this.props.users.map( user => {
-      if ( (user.username === credentials.username) && (user.password === credentials.password) ) {
-        return true;
-      }
-        return false;
-    })
-  }
 
   handleChange = (event) => {
     const { value , name } = event.target;
-        this.setState( { [name] : value } );
+    this.setState( { [name] : value } );
       }
 
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.verifyCredentials(this.state);
     this.setState({ username : '' , password : '' });
   }
 
