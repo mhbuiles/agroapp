@@ -32,35 +32,27 @@ class Authentication extends React.Component {
   state = {
     username : '',
     password : '',
-    login: true,
-    credentials: {
-      name: "jaime",
-      contrasena: "12345"
-    }
-  }    
-
-  handleChange = (event) => {
-    const { value , name } = event.target;
-        this.setState( { [name] : value }, () => {
-          console.log(this.state)
-        });   
-        
-        
   }
 
 
+  handleChange = (event) => {
+    const { value , name } = event.target;
+    this.setState( { [name] : value } );
+      }
+
+
   handleSubmit = (event) => {
-    event.preventDefault();   
-    this.setState({ username : '' , password : '' });    
+    event.preventDefault();
+    this.setState({ username : '' , password : '' });
   }
 
   render() {
     return (
         <form onSubmit = {this.handleSubmit}>
-          <fieldset>            
+          <fieldset>
             <InputForm onChange = {this.handleChange} type = "text" id = "username" name = "username" value = {this.state.username} placeholder="Email o Teléfono"></InputForm>
           </fieldset>
-          <fieldset>            
+          <fieldset>
             <InputForm onChange = {this.handleChange} type = 'password' id = "password" name = "password" value = {this.state.password} placeholder="Contraseña"></InputForm>
           </fieldset>
           <ButtonSubmit>
