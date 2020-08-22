@@ -32,6 +32,7 @@ class Authentication extends React.Component {
   state = {
     username : '',
     password : '',
+    login : true,
   }
 
 

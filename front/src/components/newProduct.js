@@ -2,15 +2,15 @@ import React from 'react';
 import {
   Link
 } from 'react-router-dom';
-import uuid from 'uuid-random';
 import {mockproducts} from './mock';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Container = styled.div`
   height: 100vh;
 `
 const ProfilePic = styled.img`
-  width: 200px;  
+  width: 200px;
   margin-bottom: 20px;
 `
 const ButtonReturn = styled.button`
@@ -47,8 +47,8 @@ class NewProduct extends React.Component {
   state = {
       name : '',
       price : 0,
-      per : '',
-      picture : '',
+      location : '',
+      image : '',
   }
 
   handleChange = (event) => {
@@ -63,18 +63,30 @@ class NewProduct extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.addProduct(this.state);
+    // this.addProduct(this.state);
     this.setState({ name : "" , price : 0 , per : '' , picture : '' });
-    console.log(mockproducts);
+    axios({
+      method : 'POST',
+      url : 'http://localhost:8000/products',
+      data: this.state
+    })
+    .then( (data) => {
+      console.log(data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
-  addProduct = (product) => {
-    let newProd = {
-      id : uuid(),
-      ...product
-    }
-    mockproducts.push(newProd);
-  }
+  // addProduct = (product) => {
+  //   let newProd = {
+  //     id : uuid(),
+  //     ...product
+  //   }
+  //   mockproducts.push(newProd);
+  // }
+
+
 
   render() {
     return (
@@ -89,12 +101,16 @@ class NewProduct extends React.Component {
             <FormInput onChange = {this.handleChange} type = 'number' id = "price" name = "price" value = {this.state.price}></FormInput>
           </FormField>
           <FormField>
-            <label htmlFor = 'per' >Unidad de medida </label><br/>
-            <FormInput onChange = {this.handleChange} type = 'text' id = "per" name = "per" value = {this.state.per}></FormInput>
+            <label htmlFor = 'location' >Ubicación </label><br/>
+            <FormInput onChange = {this.handleChange} type = 'text' id = "location" name = "location" value = {this.state.location}></FormInput>
           </FormField>
           <FormField>
-            <label htmlFor = 'picture' >Agregar una imagen </label>
-            <FormInput onChange = {this.handleChange} type = 'file' id = "picture" name = "picture" value = {this.state.picture}></FormInput>
+            <label htmlFor = 'image' >Agregar una imagen </label><br/>
+            <FormInput onChange = {this.handleChange} type = 'text' id = "image" name = "image" value = {this.state.image}></FormInput>
+          </FormField>
+          <FormField>
+            <label htmlFor = 'image2' >Agregar una imagen </label>
+            <FormInput onChange = {this.handleChange} type = 'file' id = "image2" name = "image2" ></FormInput>
           </FormField>
           <ButtonAdd>Agregar producto</ButtonAdd>
         </form>
