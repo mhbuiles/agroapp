@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Link
 } from 'react-router-dom';
-import {mockproducts} from './mock';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -64,7 +63,7 @@ class NewProduct extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     // this.addProduct(this.state);
-    this.setState({ name : "" , price : 0 , per : '' , picture : '' });
+    this.setState({ name : '' , price : 0 , location : '' , image : '' });
     axios({
       method : 'POST',
       url : 'http://localhost:8000/products',
