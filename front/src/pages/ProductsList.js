@@ -22,11 +22,18 @@ class ProductsList extends React.Component{
       axios({
         method : 'GET',
         url : 'http://localhost:8000/products',
+        headers : {
+          Authorization : `Bearer ${localStorage.getItem('token')}`
+        }
       })
-      .then( (data) => {
+      .then( ( data ) => {
+        console.log(data);
         this.setState( { products : data.data } )
       })
-      .catch( (err) => console.log(err))
+      .catch( () => {
+        localStorage.removeItem('token');
+        this.props.history.push('/Authentication');
+      })
     }
 
 

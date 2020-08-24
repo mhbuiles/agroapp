@@ -11,17 +11,18 @@ const HeadMenu = styled.div`
     z-index: 100;
 `
 
-function Menu(){    
+function Menu(){
 
     return(
-        <HeadMenu>            
+        <HeadMenu>
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#home">Agroapp Menu</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Link to = '/' className="nav-link">Página de inicio</Link>
-                        <Link to = '/UserProfile' className="nav-link">Mi perfil</Link>                        
+                        <Link to = '/UserProfile' className="nav-link">Mi perfil</Link>
+                        <Link to = '/ProductsList' className="nav-link">Productos</Link>                       
                         <NavDropdown title="Link dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -29,7 +30,7 @@ function Menu(){
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                         </NavDropdown>
-                    </Nav>                    
+                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
         </HeadMenu>
