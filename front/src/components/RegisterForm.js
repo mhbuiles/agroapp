@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import axios from 'axios';
+import {
+  Link
+} from 'react-router-dom';
 
 const InputForm = styled.input`
   text-align: center;
@@ -18,9 +21,23 @@ const ButtonSubmit = styled.button`
   margin-top: 20px;
   background-color: #333;
   color: #fff;
+  width: 190px;
 `
 const Container = styled.div`
   height: 100vh;
+  width: 100%;
+  background-image: url("https://i.pinimg.com/originals/4c/b9/ce/4cb9cee09c182385c16fc51c9e029a91.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`
+const ButtonReturn = styled.button`
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  width: 190px;
 `
 
 class RegisterForm extends React.Component{
@@ -96,6 +113,10 @@ class RegisterForm extends React.Component{
           </fieldset>
 
           <ButtonSubmit type="submit">Registrarse</ButtonSubmit>
+
+          <ButtonReturn>
+            <Link to = '/'>Regresar</Link>
+          </ButtonReturn>
 
         </form>
       </Container>

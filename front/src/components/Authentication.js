@@ -41,6 +41,13 @@ const ButtonSubmit = styled.button`
   margin-top: 20px;
   width: 130px;
 `
+const ButtonReturn = styled.button`
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  width: 130px;
+`
 
 class Authentication extends React.Component {
 
@@ -88,6 +95,9 @@ class Authentication extends React.Component {
             </fieldset>
             <ButtonSubmit type = 'submit'>Ingresar</ButtonSubmit>
             </form>
+            <ButtonReturn>
+              <Link to = '/'>Regresar</Link>
+            </ButtonReturn>
         </FlexCont>
       </AuthImg>
     )

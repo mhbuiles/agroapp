@@ -62,7 +62,6 @@ class NewProduct extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // this.addProduct(this.state);
     this.setState({ name : '' , price : 0 , location : '' , image : '' });
     axios({
       method : 'POST',
@@ -77,13 +76,6 @@ class NewProduct extends React.Component {
     });
   }
 
-  // addProduct = (product) => {
-  //   let newProd = {
-  //     id : uuid(),
-  //     ...product
-  //   }
-  //   mockproducts.push(newProd);
-  // }
 
 
 
