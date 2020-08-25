@@ -10,7 +10,7 @@ const Container = styled.div`
   height: 100vh;
 `
 const ProfilePic = styled.img`
-  width: 200px;  
+  width: 200px;
   margin-bottom: 20px;
 `
 const ButtonEdit = styled.button`
@@ -46,9 +46,11 @@ class ProducerPL extends React.Component {
     products : [],
   }
 
+
+
   render() {
     return(
-      <Container className = 'ProducerPL flexible-col justify-content-center align-items-center' >       
+      <Container className = 'ProducerPL flexible-col justify-content-center align-items-center' >
         <ProfilePic src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></ProfilePic>
         <h2>Nombre de usuario</h2>
         <h3>Mis productos</h3>
