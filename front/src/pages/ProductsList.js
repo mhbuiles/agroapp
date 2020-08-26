@@ -1,6 +1,5 @@
 import React from 'react'
 import ProductsBuyer from '../components/ProductsBuyer'
-import { ProductosComprador } from './mock.js'
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components'
 import axios from 'axios';
@@ -23,12 +22,17 @@ class ProductsList extends React.Component{
       axios({
         method : 'GET',
         url : 'http://localhost:8000/products',
+        headers : {
+          Authorization : `Bearer ${localStorage.getItem('token')}`
+        }
       })
-      .then( (data) => {
+      .then( ( data ) => {
         this.setState( { products : data.data } )
       })
-      .catch( (err) => console.log(err))
-      .finally( () => console.log('Terminado'))
+      .catch( () => {
+        localStorage.removeItem('token');
+        this.props.history.push('/Authentication');
+      })
     }
 
 
