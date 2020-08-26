@@ -62,7 +62,11 @@ class NewProduct extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+<<<<<<< HEAD
     this.setState({ name : '' , price : 0 , location : '' , image : '' });
+=======
+    this.setState({ name : "" , price : 0 , per : '' , picture : '' });
+>>>>>>> a960714b6baef1f009915fc231ab3bb7d8b72a08
     axios({
       method : 'POST',
       url : 'http://localhost:8000/products',
@@ -76,8 +80,11 @@ class NewProduct extends React.Component {
     });
   }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a960714b6baef1f009915fc231ab3bb7d8b72a08
 
   render() {
     return (

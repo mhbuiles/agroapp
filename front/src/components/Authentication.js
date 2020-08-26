@@ -54,6 +54,7 @@ class Authentication extends React.Component {
   state = {
     email : '',
     password : '',
+    login : true,
   }
 
   handleChange = (event) => {
