@@ -70,7 +70,6 @@ class Authentication extends React.Component {
       data: this.state
     })
     .then( ( { data } ) => {
-      console.log(data.token);
       localStorage.setItem( 'token' , data.token );
       this.props.history.push('/ProductsList');
     })

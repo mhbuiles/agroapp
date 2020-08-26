@@ -66,9 +66,7 @@ class RegisterForm extends React.Component{
       url : 'http://localhost:8000/users',
       data: this.state
     })
-    .then( (data) => {
-      console.log(data);
-    })
+    .then( )
     .catch(function (error) {
       console.log(error);
     });
