@@ -1,9 +1,12 @@
-import React from 'react';
+import React , { useEffect , useState , useReducer } from 'react';
 import {
-  Link
+  Link,
+  useHistory
 }from 'react-router-dom';
 import styled from 'styled-components';
 import store from '../store/store';
+import { useDispatch , useSelector } from 'react-redux';
+import { login } from '../store/authreducer';
 
 const Container = styled.div`
   height: 100vh;
@@ -38,29 +41,20 @@ const ButtonDelete = styled.button`
   color: #fff;
 `
 
-class ProducerProfile extends React.Component {
+function ProducerProfile() {
 
-  state = {
-    jaime : false,
-  }
+  const name = useSelector( state => state.authReducer.name );
+  const lname = useSelector( state => state.authReducer.lname );
+  const phone = useSelector( state => state.authReducer.phone );
+  const email = useSelector( state => state.authReducer.email );
 
-  // componentDidMount() {
-  //   store.subscribe( state => {
-  //     console.log(state);
-  //     this.setState( { jaime : store.getState().authenticated });
-  //   })
-  //
-  // }
-
-  render() {
     return(
       <Container className = 'ProducerProfile flexible-col justify-content-center align-items-center' >
         <hr></hr>
         <ProfilePic src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></ProfilePic>
-        <h3>Nombre de usuario</h3>
-        <h3>Número celular</h3>
-        <h3>Tipo de usuario</h3>
-        <h3>Recibir pagos en</h3>
+        <h3>Nombre: {name} {lname}</h3>
+        <h3>Cel: {phone}</h3>
+        <h3>e-mail: {email}</h3>
         <hr />
         <Link to = '/ProducerPL'>Mis productos</Link>
         <hr />
@@ -76,7 +70,6 @@ class ProducerProfile extends React.Component {
 
       </Container>
     )
-  }
 }
 
 export default ProducerProfile;

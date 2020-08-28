@@ -1,10 +1,10 @@
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 
-
-export function login() {
+export function login( user ) {
   return {
     type : LOGIN,
+    payload : user,
   }
 }
 
@@ -16,13 +16,22 @@ export function logout() {
 
 const initialState = {
   authenticated : false,
+  name : '',
+  lname : '',
+  email : '',
+  phone : '',
 }
 
 export function authReducer( prevState = initialState , action ) {
   switch (action.type) {
     case LOGIN:
       return {
-        authenticated : true
+        ...prevState,
+        authenticated : true,
+        name : action.payload.name,
+        lname : action.payload.lname,
+        email : action.payload.email,
+        phone : action.payload.phone,
       };
     case LOGOUT:
       return {

@@ -9,8 +9,9 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
-import { connect } from 'react-redux';
+import { useDispatch , useSelector } from 'react-redux';
 import { login } from '../store/authreducer';
+import { authReducer} from '../store/authreducer';
 
 const AuthImg = styled.div`
     width: 100%;
@@ -64,8 +65,10 @@ const initialState = {
   password : '',
 };
 
-function Authentication( { authLogin } ) {
+function Authentication( ) {
 
+  let name = useSelector( state => state.authReducer.name);
+  const dispatch = useDispatch();
   const history = useHistory();
   const [ state , setState ] = useReducer( reducer , initialState );
 
@@ -86,7 +89,7 @@ function Authentication( { authLogin } ) {
     .then( ( { data } ) => {
       localStorage.setItem( 'token' , data.token );
       history.push('/ProductsList');
-      authLogin();
+      dispatch(login( data.user ));
     })
     .catch(function (error) {
       console.log(error);
@@ -119,10 +122,4 @@ function Authentication( { authLogin } ) {
     )
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    authLogin : () => dispatch(login())
-  }
-}
-
-export default connect( null , mapDispatchToProps )(Authentication);
+export default Authentication;
