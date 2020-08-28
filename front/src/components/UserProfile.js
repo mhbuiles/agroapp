@@ -3,12 +3,13 @@ import {
   Link
 }from 'react-router-dom';
 import styled from 'styled-components';
+import store from '../store/store';
 
 const Container = styled.div`
   height: 100vh;
 `
 const ProfilePic = styled.img`
-  width: 200px;  
+  width: 200px;
   margin-bottom: 20px;
 `
 const ButtonEdit = styled.button`
@@ -39,9 +40,21 @@ const ButtonDelete = styled.button`
 
 class ProducerProfile extends React.Component {
 
+  state = {
+    jaime : false,
+  }
+
+  // componentDidMount() {
+  //   store.subscribe( state => {
+  //     console.log(state);
+  //     this.setState( { jaime : store.getState().authenticated });
+  //   })
+  //
+  // }
+
   render() {
     return(
-      <Container className = 'ProducerProfile flexible-col justify-content-center align-items-center' >        
+      <Container className = 'ProducerProfile flexible-col justify-content-center align-items-center' >
         <hr></hr>
         <ProfilePic src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></ProfilePic>
         <h3>Nombre de usuario</h3>

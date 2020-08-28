@@ -1,13 +1,16 @@
-import React from 'react';
+import React , { useEffect , useState , useReducer } from 'react';
 import {
   BrowserRouter as Router,
   Link,
   Switch,
   Redirect,
-  withRouter
+  withRouter,
+  useHistory,
 } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { login } from '../store/authreducer';
 
 const AuthImg = styled.div`
     width: 100%;
@@ -49,49 +52,62 @@ const ButtonReturn = styled.button`
   width: 130px;
 `
 
-class Authentication extends React.Component {
+function reducer(prevState, newState) {
+  return {
+    ...prevState,
+    ...newState,
+  };
+}
 
-  state = {
-    email : '',
-    password : '',
-    login : true,
-  }
+const initialState = {
+  email: '',
+  password : '',
+};
 
-  handleChange = (event) => {
+function Authentication( { authLogin } ) {
+
+  const history = useHistory();
+  const [ state , setState ] = useReducer( reducer , initialState );
+
+  function handleChange(event) {
     const { value , name } = event.target;
-    this.setState( { [name] : value } );
+    setState( { [name] : value } );
   }
 
-  handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    this.setState({ email : '' , password : '' });
+
+    setState({ email : '' , password : '' });
     axios({
       method : 'POST',
       url : 'http://localhost:8000/users/signin',
-      data: this.state
+      data: state
     })
     .then( ( { data } ) => {
       localStorage.setItem( 'token' , data.token );
-      this.props.history.push('/ProductsList');
+      history.push('/ProductsList');
+      authLogin();
     })
     .catch(function (error) {
       console.log(error);
     });
   }
 
-  render() {
+  const { email , password } = state;
+
+
     return (
       <AuthImg>
         <FlexCont>
           <div>
             <h1>Inicia sesión</h1>
           </div>
-          <form onSubmit = {this.handleSubmit}>
+          <form onSubmit = {handleSubmit}>
             <fieldset>
-              <InputForm onChange = {this.handleChange} type = "text" id = "email" name = "email" value = {this.state.email} placeholder="Email"></InputForm>
+              <InputForm onChange = {handleChange} type = "text" id = "email" name = "email" value = {email} placeholder="Email"></InputForm>
             </fieldset>
             <fieldset>
-              <InputForm onChange = {this.handleChange} type = 'password' id = "password" name = "password" value = {this.state.password} placeholder="Contraseña"></InputForm>
+              <InputForm onChange = {handleChange} type = 'password' id = "password" name = "password" value = {password} placeholder="Contraseña"></InputForm>
             </fieldset>
             <ButtonSubmit type = 'submit'>Ingresar</ButtonSubmit>
             </form>
@@ -101,7 +117,12 @@ class Authentication extends React.Component {
         </FlexCont>
       </AuthImg>
     )
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authLogin : () => dispatch(login())
   }
 }
 
-export default Authentication;
+export default connect( null , mapDispatchToProps )(Authentication);

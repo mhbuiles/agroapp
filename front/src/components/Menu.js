@@ -3,6 +3,9 @@ import Button from 'react-bootstrap/Button';
 import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import { connect } from 'react-redux';
+import { logout } from '../store/authreducer';
+import { useHistory } from 'react-router-dom';
 
 const HeadMenu = styled.div`
     position: fixed;
@@ -11,7 +14,16 @@ const HeadMenu = styled.div`
     z-index: 100;
 `
 
-function Menu(){
+function Menu( props , { authLogout } ){
+
+  const history = useHistory();
+
+  const handleLogout = (event) => {
+    event.preventDefault();
+    props.authLogout();
+    localStorage.removeItem('token');
+    history.push('/');
+  }
 
     return(
         <HeadMenu>
@@ -22,7 +34,8 @@ function Menu(){
                     <Nav className="mr-auto">
                         <Link to = '/' className="nav-link">Página de inicio</Link>
                         <Link to = '/UserProfile' className="nav-link">Mi perfil</Link>
-                        <Link to = '/ProductsList' className="nav-link">Productos</Link>                       
+                        <Link to = '/ProductsList' className="nav-link">Productos</Link>
+                        {props.authMenu ? <a onClick = {handleLogout} className="nav-link" href = '#'>Salir</a> : <Link to = '/Authentication' className="nav-link">Ingresar</Link>}
                         <NavDropdown title="Link dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -38,4 +51,16 @@ function Menu(){
 
 }
 
-export default Menu
+function mapStateToProps(state) {
+  return {
+    authMenu : state.authReducer.authenticated,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authLogout : () => dispatch(logout())
+  }
+}
+
+export default connect( mapStateToProps , mapDispatchToProps )(Menu);
