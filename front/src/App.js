@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -6,7 +6,8 @@ import {
   Switch,
   Route,
   Redirect,
-  withRouter
+  withRouter,
+  useHistory,
 } from 'react-router-dom';
 import Menu from './components/Menu'
 import Home from './components/Home'
@@ -18,25 +19,21 @@ import UserProfile from './components/UserProfile';
 import NewProduct from './components/NewProduct';
 import Authentication from './components/Authentication';
 
+function PrivateRoute(props) {
+  const history = useHistory();
 
-class PRoute extends React.Component {
-  componentDidMount() {
+  useEffect(() => {
     const token = localStorage.getItem('token');
 
     if(!token) {
-      this.props.history.push('/Authentication');
+      history.push('/Authentication')
     }
-  }
+  } , []  );
 
-  render() {
-    return (
-      <Route {...this.props} />
-    )
-  }
+  return (
+    <Route {...props} />
+  );
 }
-
-const PrivateRoute = withRouter(PRoute);
-
 
 function App() {
   return (
