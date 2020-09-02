@@ -41,6 +41,33 @@
 
 /* ESTILOS PROPIOS */
 
+body{  
+  background-color: #8D8741;
+}
+
+/* COLORES */
+
+.blueBG{
+  background-color: #659BDB;
+}
+.greenBG{
+  background-color: #8D8741;
+}
+.sandyBG{
+  background-color: #daad86;
+}
+.brownBG{
+  background-color: #BC986A;
+}
+.beigeBG{
+  background-color: #fbeec1;
+}
+.whiteBG{
+  background-color: #fff;
+}
+
+/* FLEX CLASSES */
+
 .flexible-col{
   display: flex;
   flex-direction: column;

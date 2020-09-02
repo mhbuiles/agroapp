@@ -1,4 +1,5 @@
 import React , { useEffect } from 'react';
+import ReactDOM from 'react-dom'
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -8,6 +9,7 @@ import {
   Redirect,
   withRouter,
   useHistory,
+  useParams
 } from 'react-router-dom';
 import Menu from './components/Menu'
 import Home from './components/Home'
@@ -18,6 +20,7 @@ import ProducerTL from './components/ProducerTL';
 import UserProfile from './components/UserProfile';
 import NewProduct from './components/NewProduct';
 import Authentication from './components/Authentication';
+import ProductView from './pages/ProductView';
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -35,6 +38,7 @@ function PrivateRoute(props) {
   );
 }
 
+
 function App() {
   return (
     <div className="App">
@@ -49,6 +53,9 @@ function App() {
           <PrivateRoute exact path="/UserProfile" component={UserProfile}></PrivateRoute>
           <PrivateRoute exact path="/ProductsList" component={ProductsList}></PrivateRoute>
           <PrivateRoute exact path="/Authentication" component={Authentication}></PrivateRoute>
+          <Route path="/ProductsList/ProductView/:id">
+            <ProductView />
+          </Route>          
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>
       </Router>
