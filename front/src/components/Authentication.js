@@ -1,17 +1,12 @@
-import React , { useEffect , useState , useReducer } from 'react';
+import React , { useReducer } from 'react';
 import {
-  BrowserRouter as Router,
   Link,
-  Switch,
-  Redirect,
-  withRouter,
   useHistory,
 } from 'react-router-dom';
 import styled from 'styled-components'
 import axios from 'axios';
-import { useDispatch , useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../store/authreducer';
-import { authReducer} from '../store/authreducer';
 
 const AuthImg = styled.div`
     width: 100%;
@@ -67,7 +62,6 @@ const initialState = {
 
 function Authentication( ) {
 
-  let name = useSelector( state => state.authReducer.name);
   const dispatch = useDispatch();
   const history = useHistory();
   const [ state , setState ] = useReducer( reducer , initialState );
@@ -90,6 +84,7 @@ function Authentication( ) {
       localStorage.setItem( 'token' , data.token );
       history.push('/ProductsList');
       dispatch(login( data.user ));
+      // console.log(data.user);
     })
     .catch(function (error) {
       console.log(error);
@@ -97,7 +92,6 @@ function Authentication( ) {
   }
 
   const { email , password } = state;
-
 
     return (
       <AuthImg>

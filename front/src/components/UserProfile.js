@@ -1,12 +1,9 @@
-import React , { useEffect , useState , useReducer } from 'react';
+import React from 'react';
 import {
   Link,
-  useHistory
 }from 'react-router-dom';
 import styled from 'styled-components';
-import store from '../store/store';
-import { useDispatch , useSelector } from 'react-redux';
-import { login } from '../store/authreducer';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
   height: 100vh;
@@ -61,8 +58,8 @@ function ProducerProfile() {
         <Link to = '/ProducerTL'>Mis transacciones</Link>
         <hr />
         <fieldset>
-          <ButtonReturn><Link to = '/Home'>Regresar</Link></ButtonReturn>
-          <ButtonEdit><Link to = '/CustomerForm'>Editar perfil</Link></ButtonEdit>
+          <ButtonReturn><Link to = '/ProductsList'>Regresar</Link></ButtonReturn>
+          <ButtonEdit><Link to = '/RegisterForm'>Editar perfil</Link></ButtonEdit>
         </fieldset>
         <fieldset>
           <ButtonDelete>Eliminar cuenta</ButtonDelete>

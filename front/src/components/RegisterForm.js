@@ -107,13 +107,13 @@ class RegisterForm extends React.Component{
           </fieldset>
 
           <fieldset>
-            <InputForm onChange = {this.handleChange} placeholder="Número de Identificación" name="id_number" className="user-registration-form-input" value = {this.state.id_bumber} />
+            <InputForm onChange = {this.handleChange} placeholder="Número de Identificación" name="id_number" className="user-registration-form-input" value = {this.state.id_number} />
           </fieldset>
 
           <ButtonSubmit type="submit">Registrarse</ButtonSubmit>
 
           <ButtonReturn>
-            <Link to = '/'>Regresar</Link>
+            <Link to = '/UserProfile'>Regresar</Link>
           </ButtonReturn>
 
         </form>

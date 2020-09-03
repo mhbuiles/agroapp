@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useReducer } from 'react';
 import {
   Link
 } from 'react-router-dom';
@@ -41,32 +41,40 @@ const FormInput = styled.input`
   width: 90%;
 `
 
-class NewProduct extends React.Component {
+function reducer(prevState, newState) {
+  return {
+    ...prevState,
+    ...newState,
+  };
+}
 
-  state = {
-      name : '',
-      price : 0,
-      location : '',
-      image : '',
+const initialState = {
+  name: '',
+  price : '',
+  units : '',
+  location: '',
+  image : '',
+};
+
+function NewProduct( ) {
+
+  const [ state , setState ] = useReducer( reducer , initialState );
+
+  function handleChange(event) {
+    const { value , name } = event.target;
+    setState( { [name] : value } );
   }
 
-  handleChange = (event) => {
-    const { value , name , checked } = event.target;
-    if ( name === "done" ) {
-      this.setState( { [name] : checked } );
-    }
-      else {
-        this.setState( { [name] : value } );
-      }
-  }
-
-  handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    this.setState({ name : '' , price : 0 , location : '' , image : '' });
+    setState({ name : '' , price : 0 , units : '' , location : '' , image : '' });
     axios({
       method : 'POST',
       url : 'http://localhost:8000/products',
-      data: this.state
+      data: state,
+      headers : {
+        Authorization : `Bearer ${localStorage.getItem('token')}`
+      }
     })
     .then( (data) => {
       console.log(data);
@@ -76,39 +84,42 @@ class NewProduct extends React.Component {
     });
   }
 
+  const { name , price , units , location , image } = state;
 
-  render() {
     return (
       <Container className = 'flexible-col justify-content-center align-items-center' >
-        <form onSubmit = {this.handleSubmit}>
+        <form onSubmit = {handleSubmit}>
           <FormField>
             <label htmlFor = 'name' >Nombre del producto </label><br/>
-            <FormInput onChange = {this.handleChange} type = "text" id = "name" name = "name" value = {this.state.name}></FormInput>
+            <FormInput onChange = {handleChange} type = "text" id = "name" name = "name" value = {name}></FormInput>
           </FormField>
           <FormField>
             <label htmlFor = 'price' >Precio por unidad de medida </label><br/>
-            <FormInput onChange = {this.handleChange} type = 'number' id = "price" name = "price" value = {this.state.price}></FormInput>
+            <FormInput onChange = {handleChange} type = 'number' id = "price" name = "price" value = {price}></FormInput>
+          </FormField>
+          <FormField>
+            <label htmlFor = 'units' >Unidad de medida </label><br/>
+            <FormInput onChange = {handleChange} type = 'text' id = "units" name = "units" value = {units}></FormInput>
           </FormField>
           <FormField>
             <label htmlFor = 'location' >Ubicación </label><br/>
-            <FormInput onChange = {this.handleChange} type = 'text' id = "location" name = "location" value = {this.state.location}></FormInput>
+            <FormInput onChange = {handleChange} type = 'text' id = "location" name = "location" value = {location}></FormInput>
           </FormField>
           <FormField>
             <label htmlFor = 'image' >Agregar una imagen </label><br/>
-            <FormInput onChange = {this.handleChange} type = 'text' id = "image" name = "image" value = {this.state.image}></FormInput>
+            <FormInput onChange = {handleChange} type = 'text' id = "image" name = "image" value = {image}></FormInput>
           </FormField>
           <FormField>
             <label htmlFor = 'image2' >Agregar una imagen </label>
-            <FormInput onChange = {this.handleChange} type = 'file' id = "image2" name = "image2" ></FormInput>
+            <FormInput onChange = {handleChange} type = 'file' id = "image2" name = "image2" ></FormInput>
           </FormField>
           <ButtonAdd>Agregar producto</ButtonAdd>
         </form>
         <ButtonReturn>
-          <Link to = '/ProducerPl'>Ir a mis productos</Link>
+          <Link to = '/ProducerPL'>Ir a mis productos</Link>
         </ButtonReturn>
       </Container>
     )
-  }
 
 }
 

@@ -8,7 +8,7 @@ const Container = styled.div`
   height: 100vh;
 `
 const ProfilePic = styled.img`
-  width: 200px;  
+  width: 200px;
   margin-bottom: 20px;
 `
 const ButtonReturn = styled.button`
@@ -31,13 +31,9 @@ const TransactionsCont = styled.div`
 
 class ProducerTL extends React.Component {
 
-// const container = styled.div`
-//   color : red;
-// `;
-
   render() {
     return(
-      <Container className = 'ProducerTL flexible-col justify-content-center align-items-center' >        
+      <Container className = 'ProducerTL flexible-col justify-content-center align-items-center' >
         <ProfilePic src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></ProfilePic>
         <h2>Nombre de usuario</h2>
         <h3>Mis transacciones</h3>
