@@ -1,5 +1,4 @@
 import React , { useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -18,6 +17,8 @@ import ProducerTL from './components/ProducerTL';
 import UserProfile from './components/UserProfile';
 import NewProduct from './components/NewProduct';
 import Authentication from './components/Authentication';
+import AboutUs from './pages/AboutUs'
+
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -41,14 +42,15 @@ function App() {
       <Router>
         <Menu />
         <Switch>
-          <Route exact path = '/' component = {Home}></Route>
           <Route exact path = '/RegisterForm' component = {RegisterForm}></Route>
+          <Route exact path = '/about' component={AboutUs}></Route>
+          <Route exact path="/Authentication" component={Authentication}></Route>
+          <Route exact path = '/' component = {Home}></Route>
           <PrivateRoute exact path = '/ProducerPL' component = {ProducerPL}></PrivateRoute>
           <PrivateRoute exact path = '/ProducerTL' component = {ProducerTL}></PrivateRoute>
           <PrivateRoute exact path = '/NewProduct' component = {NewProduct}></PrivateRoute>
           <PrivateRoute exact path="/UserProfile" component={UserProfile}></PrivateRoute>
           <PrivateRoute exact path="/ProductsList" component={ProductsList}></PrivateRoute>
-          <PrivateRoute exact path="/Authentication" component={Authentication}></PrivateRoute>
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>
       </Router>
