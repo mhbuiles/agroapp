@@ -6,13 +6,8 @@ import styled from 'styled-components'
 import { connect } from 'react-redux';
 import { logout } from '../store/authreducer';
 import { useHistory } from 'react-router-dom';
+import './ComponentsCSS/Menu.css'
 
-const HeadMenu = styled.div`
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-`
 
 function Menu( props , { authLogout } ){
 
@@ -24,11 +19,10 @@ function Menu( props , { authLogout } ){
     localStorage.removeItem('token');
     history.push('/');
   }
-
     return(
-        <HeadMenu>
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="/">Agroapp Logo</Navbar.Brand>
+        <div className='headMenu'>
+            <Navbar className='whiteBG' expand="lg">
+              <Navbar.Brand href="/">Agroapp Logo</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -49,7 +43,7 @@ function Menu( props , { authLogout } ){
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        </HeadMenu>
+        </div>
     )
 
 }

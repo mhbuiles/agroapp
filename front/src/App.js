@@ -7,6 +7,7 @@ import {
   Redirect,
   withRouter,
   useHistory,
+  useParams
 } from 'react-router-dom';
 import Menu from './components/Menu'
 import Home from './components/Home'
@@ -18,7 +19,7 @@ import UserProfile from './components/UserProfile';
 import NewProduct from './components/NewProduct';
 import Authentication from './components/Authentication';
 import AboutUs from './pages/AboutUs'
-
+import ProductView from './pages/ProductView';
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -36,6 +37,7 @@ function PrivateRoute(props) {
   );
 }
 
+
 function App() {
   return (
     <div className="App">
@@ -51,6 +53,11 @@ function App() {
           <PrivateRoute exact path = '/NewProduct' component = {NewProduct}></PrivateRoute>
           <PrivateRoute exact path="/UserProfile" component={UserProfile}></PrivateRoute>
           <PrivateRoute exact path="/ProductsList" component={ProductsList}></PrivateRoute>
+          <PrivateRoute exact path="/Authentication" component={Authentication}></PrivateRoute>
+          <Route path="/ProductsList/ProductView/:id">
+            <ProductView />
+          </Route>          
+
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>
       </Router>

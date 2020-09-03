@@ -7,51 +7,12 @@ import {
   withRouter,
   useHistory,
 } from 'react-router-dom';
-import styled from 'styled-components'
 import axios from 'axios';
 import { useDispatch , useSelector } from 'react-redux';
 import { login } from '../store/authreducer';
 import { authReducer} from '../store/authreducer';
+import './ComponentsCSS/Authentication.css'
 
-const AuthImg = styled.div`
-    width: 100%;
-    background-image: url("https://i.pinimg.com/564x/86/82/80/868280fd8229fcd648329bb1927fa2b9.jpg");
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-`
-const FlexCont = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-`
-
-const InputForm = styled.input`
-  text-align: center;
-  margin: 20px auto;
-  width: 270px;
-  border-radius: 5px;
-  border: none;
-  padding: 5px 0;
-`
-const ButtonSubmit = styled.button`
-  border-radius: 5px;
-  border: none;
-  padding: 8px 8px;
-  margin-top: 20px;
-  width: 130px;
-`
-const ButtonReturn = styled.button`
-  border-radius: 5px;
-  border: none;
-  padding: 8px 8px;
-  margin-top: 20px;
-  width: 130px;
-`
 
 function reducer(prevState, newState) {
   return {
@@ -100,25 +61,25 @@ function Authentication( ) {
 
 
     return (
-      <AuthImg>
-        <FlexCont>
+      <div className='authImg'>
+        <div className='flexCont'>
           <div>
             <h1>Inicia sesión</h1>
           </div>
           <form onSubmit = {handleSubmit}>
             <fieldset>
-              <InputForm onChange = {handleChange} type = "text" id = "email" name = "email" value = {email} placeholder="Email"></InputForm>
+              <input className='inputForm' onChange = {handleChange} type = "text" id = "email" name = "email" value = {email} placeholder="Email"></input>
             </fieldset>
             <fieldset>
-              <InputForm onChange = {handleChange} type = 'password' id = "password" name = "password" value = {password} placeholder="Contraseña"></InputForm>
+              <input className='inputForm' onChange = {handleChange} type = 'password' id = "password" name = "password" value = {password} placeholder="Contraseña"></input>
             </fieldset>
-            <ButtonSubmit type = 'submit'>Ingresar</ButtonSubmit>
+            <button className='buttonSubmit' type = 'submit'>Ingresar</button>
             </form>
-            <ButtonReturn>
+            <button className='buttonReturn'>
               <Link to = '/'>Regresar</Link>
-            </ButtonReturn>
-        </FlexCont>
-      </AuthImg>
+            </button>
+        </div>
+      </div>
     )
 }
 
