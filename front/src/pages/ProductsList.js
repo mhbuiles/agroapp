@@ -3,12 +3,26 @@ import ProductsBuyer from '../components/ProductsBuyer'
 import { Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+
+
 
 
 const Container = styled.div`
     width: 300px;
     margin: 70px auto 20px auto;
 `
+
+
+
+
+const CreateProductButton = () => {
+
+  return(
+    <button><Link to = '/NewProduct'>Agregar nuevo</Link></button>
+  )
+}
+
 
 
 
@@ -53,6 +67,7 @@ class ProductsList extends React.Component{
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                     </Form>
                 </Container>
+                <CreateProductButton />
                 <ProductsBuyer products={this.state.products}/>
             </div>
         )

@@ -2,44 +2,8 @@ import React , { useReducer } from 'react';
 import {
   Link
 } from 'react-router-dom';
-import styled from 'styled-components';
 import axios from 'axios';
-
-const Container = styled.div`
-  height: 100vh;
-`
-const ProfilePic = styled.img`
-  width: 200px;
-  margin-bottom: 20px;
-`
-const ButtonReturn = styled.button`
-  border-radius: 5px;
-  border: none;
-  padding: 8px 8px;
-  margin: 15px 5px 15px 5px;
-  width: 180px;
-`
-const ButtonAdd = styled.button`
-  width: 180px;
-  border-radius: 5px;
-  border: none;
-  padding: 8px 8px;
-  margin: 20px 5px 20px 5px;
-  background-color: #333;
-  color: #fff;
-`
-
-const FormField = styled.fieldset`
-  margin: 15px 10%;
-  border: 1px solid #000;
-  width: 80%;
-  padding: 10px 10px;
-`
-
-const FormInput = styled.input`
-  text-align: center;
-  width: 90%;
-`
+import './ComponentsCSS/newProduct.css'
 
 function reducer(prevState, newState) {
   return {
@@ -54,6 +18,7 @@ const initialState = {
   units : '',
   location: '',
   image : '',
+  description: '',
 };
 
 function NewProduct( ) {
@@ -87,38 +52,43 @@ function NewProduct( ) {
   const { name , price , units , location , image } = state;
 
     return (
-      <Container className = 'flexible-col justify-content-center align-items-center' >
+      <div className = 'containerNewProd flexible-col justify-content-center align-items-center' >
+        <h2 className='newProdTitle'>Agregar un Producto</h2>
         <form onSubmit = {handleSubmit}>
-          <FormField>
-            <label htmlFor = 'name' >Nombre del producto </label><br/>
-            <FormInput onChange = {handleChange} type = "text" id = "name" name = "name" value = {name}></FormInput>
-          </FormField>
-          <FormField>
-            <label htmlFor = 'price' >Precio por unidad de medida </label><br/>
-            <FormInput onChange = {handleChange} type = 'number' id = "price" name = "price" value = {price}></FormInput>
-          </FormField>
-          <FormField>
-            <label htmlFor = 'units' >Unidad de medida </label><br/>
-            <FormInput onChange = {handleChange} type = 'text' id = "units" name = "units" value = {units}></FormInput>
-          </FormField>
-          <FormField>
-            <label htmlFor = 'location' >Ubicación </label><br/>
-            <FormInput onChange = {handleChange} type = 'text' id = "location" name = "location" value = {location}></FormInput>
-          </FormField>
-          <FormField>
-            <label htmlFor = 'image' >Agregar una imagen </label><br/>
-            <FormInput onChange = {handleChange} type = 'text' id = "image" name = "image" value = {image}></FormInput>
-          </FormField>
-          <FormField>
-            <label htmlFor = 'image2' >Agregar una imagen </label>
-            <FormInput onChange = {handleChange} type = 'file' id = "image2" name = "image2" ></FormInput>
-          </FormField>
-          <ButtonAdd>Agregar producto</ButtonAdd>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'name' >Nombre del producto </label><br/>
+            <input className='formInput' onChange = {handleChange} type = "text" id = "name" name = "name" value = {name}></input>
+          </fieldset>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'price' >Precio por unidad de medida </label><br/>
+            <input className='formInput' onChange = {handleChange} type = 'number' id = "price" name = "price" value = {price}></input>
+          </fieldset>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'units' >Unidad de medida </label><br/>
+            <input className='formInput' onChange = {handleChange} type = 'text' id = "units" name = "units" value = {units}></input>
+          </fieldset>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'location' >Ubicación </label><br/>
+            <input className='formInput' onChange = {handleChange} type = 'text' id = "location" name = "location" value = {location}></input>
+          </fieldset>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'image' >Agregar una imagen </label><br/>
+            <input className='formInput' onChange = {handleChange} type = 'text' id = "image" name = "image" value = {image}></input>
+          </fieldset>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'image2' >Agregar una imagen </label>
+            <input className='formInput' onChange = {handleChange} type = 'file' id = "image2" name = "image2" ></input>
+          </fieldset>
+          <fieldset className="formField">
+            <label className="newProdLabel" htmlFor = 'image2' >Agregar descripción</label>
+            <textarea className='newProdTxtArea' name="description" rows="5" onChange = {handleChange} value = {description}></textarea>
+          </fieldset>
+          <button className='buttonAddNewProd'>Agregar producto</button>
         </form>
-        <ButtonReturn>
-          <Link to = '/ProducerPL'>Ir a mis productos</Link>
-        </ButtonReturn>
-      </Container>
+        <button className='buttonReturnNewProd'>
+          <Link to = '/ProducerPl'>Ir a mis productos</Link>
+        </button>
+      </div>
     )
 
 }

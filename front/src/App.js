@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
   useHistory,
+  useParams
 } from 'react-router-dom';
 import Menu from './components/Menu'
 import Home from './components/Home'
@@ -16,6 +17,8 @@ import ProducerTL from './components/ProducerTL';
 import UserProfile from './components/UserProfile';
 import NewProduct from './components/NewProduct';
 import Authentication from './components/Authentication';
+import AboutUs from './pages/AboutUs'
+import ProductView from './pages/ProductView';
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -33,20 +36,27 @@ function PrivateRoute(props) {
   );
 }
 
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Menu />
         <Switch>
-          <Route exact path = '/' component = {Home}></Route>
           <Route exact path = '/RegisterForm' component = {RegisterForm}></Route>
+          <Route exact path = '/about' component={AboutUs}></Route>
+          <Route exact path="/Authentication" component={Authentication}></Route>
+          <Route exact path = '/' component = {Home}></Route>
           <PrivateRoute exact path = '/ProducerPL' component = {ProducerPL}></PrivateRoute>
           <PrivateRoute exact path = '/ProducerTL' component = {ProducerTL}></PrivateRoute>
           <PrivateRoute exact path = '/NewProduct' component = {NewProduct}></PrivateRoute>
           <PrivateRoute exact path="/UserProfile" component={UserProfile}></PrivateRoute>
           <PrivateRoute exact path="/ProductsList" component={ProductsList}></PrivateRoute>
           <PrivateRoute exact path="/Authentication" component={Authentication}></PrivateRoute>
+          <Route path="/ProductsList/ProductView/:id">
+            <ProductView />
+          </Route>          
+
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>
       </Router>

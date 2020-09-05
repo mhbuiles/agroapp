@@ -6,40 +6,8 @@ import {
 import Products from './Products';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import './ComponentsCSS/ProducerPL.css'
 
-const Container = styled.div`
-  height: 100vh;
-`
-const ProfilePic = styled.img`
-  width: 200px;
-  margin-bottom: 20px;
-`
-const ButtonEdit = styled.button`
-  width: 130px;
-  border-radius: 5px;
-  border: none;
-  padding: 8px 8px;
-  margin: 15px 5px 15px 5px;
-  background-color: #333;
-  color: #fff;
-`
-const ButtonReturn = styled.button`
-  border-radius: 5px;
-  border: none;
-  padding: 8px 8px;
-  margin: 15px 5px 15px 5px;
-  width: 130px;
-`
-const ProductsCont = styled.div`
-  height: 130px;
-  overflow: hidden;
-  overflow-y: scroll;
-  border: 1px solid #000;
-  padding: 10px;
-  width: 70%;
-  margin: 15px 0;
-  box-sizing: border-box;
-`
 
 // function reducer(prevState, newState) {
 //   return {
@@ -89,6 +57,7 @@ function ProducerPL( ) {
 
 
     return(
+<<<<<<< HEAD
       <Container className = 'ProducerPL flexible-col justify-content-center align-items-center' >
         <ProfilePic src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></ProfilePic>
         <h2>{name} {lname}</h2>
@@ -96,10 +65,19 @@ function ProducerPL( ) {
         <ProductsCont>
           <Products products = {products} ></Products>
         </ProductsCont>
+=======
+      <div className = 'prodPlContainer ProducerPL flexible-col justify-content-center align-items-center' >
+        <img className='prodPlProfilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></img>
+        <h2>Nombre de usuario</h2>
+        <h3>Mis productos</h3>
+        <div className='prodPlProductsCont'>
+          <Products products = {mockproducts} ></Products>
+        </div>
+>>>>>>> 01030bf9d4f25d0f7e2d4083ebcbb2b7863f7d13
         <hr></hr>
-        <ButtonReturn><Link to = '/UserProfile'>Regresar</Link></ButtonReturn>
-        <ButtonEdit><Link to = '/NewProduct'>Agregar nuevo</Link></ButtonEdit>
-      </Container>
+        <button className='prodPlButtonReturn'><Link to = '/UserProfile'>Regresar</Link></button>
+        <button className='prodPlButtonEdit'><Link to = '/NewProduct'>Agregar nuevo</Link></button>
+      </div>
     )
 }
 
