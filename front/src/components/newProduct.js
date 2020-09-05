@@ -30,7 +30,8 @@ class NewProduct extends React.Component {
     this.setState({ name : '' , price : 0 , location : '' , image : '' });
     axios({
       method : 'POST',
-      url : 'http://localhost:8000/products',
+      baseURL : process.env.REACT_APP_SERVER_URL,
+      url : '/products',
       data: this.state
     })
     .then( (data) => {

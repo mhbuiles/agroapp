@@ -44,7 +44,8 @@ function Authentication( ) {
     setState({ email : '' , password : '' });
     axios({
       method : 'POST',
-      url : 'http://localhost:8000/users/signin',
+      baseURL : process.env.REACT_APP_SERVER_URL,
+      url : '/users/signin',
       data: state
     })
     .then( ( { data } ) => {

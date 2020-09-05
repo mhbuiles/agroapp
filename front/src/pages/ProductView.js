@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from 'react'
 import axios from 'axios';
 import {
-  BrowserRouter as Router,  
+  BrowserRouter as Router,
   useParams
 } from 'react-router-dom'
 import '../components/ComponentsCSS/ProductView.css'
@@ -12,19 +12,20 @@ function reducer(prevState, newState) {
       ...newState,
     };
   }
-  
+
 const initialState = {
     product: {},
 };
 
 function ProductView() {
     const [ state , setState ] = useReducer( reducer , initialState );
-    let { id } = useParams()  
-    
+    let { id } = useParams()
+
     useEffect(() => {
         axios({
             method : 'GET',
-            url : `http://localhost:8000/products/${id}`        
+            baseURL : process.env.REACT_APP_SERVER_URL,
+            url : `/products/${id}`,       
           })
           .then(( data ) => {
                 //console.log(data.data);
@@ -33,7 +34,7 @@ function ProductView() {
           .catch( function (error) {
             console.log(error);
           })
-    }, [])   
+    }, [])
 
 
   return(
@@ -46,23 +47,23 @@ function ProductView() {
             <p className='prodViewInfo'>{state.product.name}</p>
             <img className='prodViewImage' src={state.product.image}></img>
         </div>
-        <div className='prodViewSmallCont'>                
+        <div className='prodViewSmallCont'>
             <h3 className='prodViewTitle'>Precio</h3>
             <p className='prodViewInfo'>{state.product.price} {'Pesos'}</p>
             <h3 className='prodViewTitle'>Ubicación</h3>
             <p className='prodViewInfo'>{state.product.location}</p>
             <h3 className='prodViewTitle'>Descripción</h3>
             <p className='prodViewDesc'>{state.product.description}</p>
-        </div> 
+        </div>
 
         <fieldset>
           <button className='prodViewAdd'>Agregar al carrito</button>
-        </fieldset>  
+        </fieldset>
 
-      </div>  
+      </div>
 
     </div>
-  )  
+  )
 }
 
 ///ProductsList/ProductView/5f4d233defe0b9f93c12dc62
