@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductsBuyer from '../components/ProductsBuyer'
-import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import { Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import styled from 'styled-components'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -42,6 +42,7 @@ class ProductsList extends React.Component{
       })
       .then( ( data ) => {
         this.setState( { products : data.data } )
+        console.log(data.data);
       })
       .catch( () => {
         localStorage.removeItem('token');

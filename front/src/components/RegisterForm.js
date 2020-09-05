@@ -73,7 +73,7 @@ class RegisterForm extends React.Component{
           </fieldset>
 
           <fieldset>
-            <input onChange = {this.handleChange} placeholder="Número de Identificación" name="id_number" className="registerInputForm user-registration-form-input" value = {this.state.id_bumber} />
+            <input onChange = {this.handleChange} placeholder="Número de Identificación" name="id_number" className="registerInputForm user-registration-form-input" value = {this.state.id_number} />
           </fieldset>
 
           <button className='registerButtonSubmit' type="submit">Registrarse</button>

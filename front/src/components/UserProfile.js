@@ -1,7 +1,6 @@
-import React , { useEffect , useState , useReducer } from 'react';
+import React from 'react';
 import {
   Link,
-  useHistory
 }from 'react-router-dom';
 import store from '../store/store';
 import { useDispatch , useSelector } from 'react-redux';
@@ -29,8 +28,8 @@ function ProducerProfile() {
         <Link to = '/ProducerTL'>Mis transacciones</Link>
         <hr />
         <fieldset>
-          <button className='profileButtonReturn'><Link to = '/Home'>Regresar</Link></button>
-          <button className='profileButtonEdit'><Link to = '/CustomerForm'>Editar perfil</Link></button>
+          <button className='profileButtonReturn'><Link to = '/ProductsList'>Regresar</Link></button>
+          <button className='profileButtonEdit'><Link to = '/RegisterForm'>Editar perfil</Link></button>
         </fieldset>
         <fieldset>
           <button className='profileButtonDelete'>Eliminar cuenta</button>

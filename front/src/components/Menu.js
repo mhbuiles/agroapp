@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { connect } from 'react-redux';
