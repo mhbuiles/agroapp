@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { connect } from 'react-redux';
 import { logout } from '../store/authreducer';
 import { useHistory } from 'react-router-dom';
-import './ComponentsCSS/Menu.css'
+import './ComponentsCSS/Menu.css';
+import logo from './Assets/logo.jpg';
 
 
 function Menu( props , { authLogout } ){
@@ -21,7 +22,8 @@ function Menu( props , { authLogout } ){
     return(
         <div className='headMenu'>
             <Navbar className='whiteBG' expand="lg">
-              <Navbar.Brand href="/">Agroapp Logo</Navbar.Brand>
+              <Navbar.Brand href="/"><img className="brand-logo" src={logo} alt="Agroapp Logo" /></Navbar.Brand>
+                <h2 className = 'menuTitle'>Agroapp</h2>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -35,9 +37,9 @@ function Menu( props , { authLogout } ){
                             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item>
-                              <Link to = '/about' className="item">About us</Link> 
+                              <Link to = '/about' className="item">About us</Link>
                             </NavDropdown.Item>
-                            
+
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

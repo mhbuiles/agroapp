@@ -1,0 +1,29 @@
+.containerAbout{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff;
+  padding-top: 120px;
+}
+.aboutContent{
+  width: 330px;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 8px;
+  font-size: 20px;
+  border: 5px solid #daad86;
+  color: #659bdb;
+}
+.aboutTitle{
+  text-align: center;
+  text-transform: uppercase;
+  color: #bc986a;
+  font-weight: 800;
+}
+.aboutLogo{
+  width: 120px;
+  margin: 10px auto;
+}
+.aboutLogo img {
+  width: 100%;
+}
