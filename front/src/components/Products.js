@@ -6,7 +6,9 @@ class Products extends React.Component {
     return (
       <div>
         {this.props.products.map( product =>
-          <p  key = {product._id} >{product.name}</p>
+          <div key = {product._id}>
+            <p>{product.name}</p>
+          </div>
         )}
       </div>
     )

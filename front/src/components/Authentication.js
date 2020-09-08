@@ -46,7 +46,6 @@ function Authentication( ) {
       localStorage.setItem( 'token' , data.token );
       history.push('/ProductsList');
       dispatch(login( data.user ));
-      // console.log(data.user);
     })
     .catch(function (error) {
       console.log(error);

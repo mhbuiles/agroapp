@@ -20,6 +20,12 @@
     border-radius: 5px;
 }
 
-.navbar-nav {  
+.navbar-nav {
     margin-top: 10px;
+}
+.brand-logo{
+    width:50px;
+}
+.menuTitle{
+  color: #659BDB;
 }
