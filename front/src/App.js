@@ -52,8 +52,7 @@ function App() {
           <PrivateRoute exact path = '/NewProduct' component = {NewProduct}></PrivateRoute>
           <PrivateRoute exact path="/UserProfile" component={UserProfile}></PrivateRoute>
           <PrivateRoute exact path="/ProductsList" component={ProductsList}></PrivateRoute>
-          <PrivateRoute exact path="/Authentication" component={Authentication}></PrivateRoute>
-          <Route path="/ProductsList/ProductView/:id">
+          <Route exact path="/ProductsList/ProductView/:id">
             <ProductView />
           </Route>          
 
