@@ -1,6 +1,6 @@
 import React , { useReducer , useState } from 'react';
 import {
-  Link
+  Link, useHistory
 } from 'react-router-dom';
 import axios from 'axios';
 import './ComponentsCSS/newProduct.css'
@@ -14,6 +14,8 @@ function NewProduct( ) {
   const [ description , setDescription ] = useState('');
   const [ file , setFile ] = useState(null);
   const [ imageread , setImageread ] = useState(null);
+
+  const history = useHistory();
 
   function handleFile ( event ) {
     setFile(event.target.files[0]);
@@ -55,6 +57,7 @@ function NewProduct( ) {
       setUnits('');
       setLocation('');
       setDescription('');
+      history.push('/ProductsList');
     })
     .catch(function (error) {
       console.log(error);

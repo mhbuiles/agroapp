@@ -5,9 +5,6 @@ import styled from 'styled-components'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-
-
-
 const Container = styled.div`
     width: 300px;
     margin: 70px auto 20px auto;
@@ -28,8 +25,6 @@ const CreateProductButton = () => {
     <AddButton><Link to = '/NewProduct'>Agregar nuevo</Link></AddButton>
   )
 }
-
-
 
 
 class ProductsList extends React.Component{
@@ -54,8 +49,6 @@ class ProductsList extends React.Component{
         this.props.history.push('/Authentication');
       })
     }
-
-
 
     render(){
         return(

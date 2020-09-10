@@ -30,14 +30,14 @@ function Menu( props , { authLogout } ){
                         <Link to = '/' className="nav-link">Página de inicio</Link>
                         <Link to = '/UserProfile' className="nav-link">Mi perfil</Link>
                         <Link to = '/ProductsList' className="nav-link">Productos</Link>
-                        {props.authMenu ? <a onClick = {handleLogout} className="nav-link" href = '#'>Salir</a> : <Link to = '/Authentication' className="nav-link">Ingresar</Link>}
+                        { props.authMenu ? <span onClick = {handleLogout} className="nav-link">Salir</span> : <Link to = '/Authentication' className="nav-link">Ingresar</Link>}
                         <NavDropdown title="Link dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Ver Carrito</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item>
-                              <Link to = '/about' className="item">About us</Link>
+                             <Link to = '/about' className="item">About us</Link>
                             </NavDropdown.Item>
 
                         </NavDropdown>

@@ -13,10 +13,11 @@ import {
 
 function ProductBuyer({ product }){
     return(
+        
         <Link to={`/ProductsList/ProductView/${product._id}`}>
             <div className='container beigeBG'>
                 <div className='smallCont'>
-                    <img className='prodImage' src={product.image}></img>
+                    <img className='prodImage' src={product.image} alt="" ></img>
                 </div>
                 <div className='smallCont'>
                     <h3 className='prodTitle'>Producto</h3>
@@ -31,6 +32,7 @@ function ProductBuyer({ product }){
                 </div>         
             </div>
         </Link>
+        
     );
 }
 

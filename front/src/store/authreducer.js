@@ -35,7 +35,6 @@ export function authReducer( prevState = initialState , action ) {
         phone : action.payload.phone,
         products : action.payload.products,
         userID : action.payload._id,
-        id : action.payload._id,
       };
     case LOGOUT:
       return {
