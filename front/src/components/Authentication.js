@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../store/authreducer';
 import { authReducer} from '../store/authreducer';
 import './ComponentsCSS/Authentication.css'
+import { useAlert } from 'react-alert'
 
 
 function reducer(prevState, newState) {
@@ -26,6 +27,7 @@ function Authentication( ) {
 
   const dispatch = useDispatch();
   const history = useHistory();
+  const alertReact = useAlert(); 
   const [ state , setState ] = useReducer( reducer , initialState );
 
   function handleChange(event) {
@@ -35,8 +37,7 @@ function Authentication( ) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    setState({ email : '' , password : '' });
+    
     axios({
       method : 'POST',
       url : 'http://localhost:8000/users/signin',
@@ -46,9 +47,12 @@ function Authentication( ) {
       localStorage.setItem( 'token' , data.token );
       history.push('/ProductsList');
       dispatch(login( data.user ));
+      setState({ email : '' , password : '' });
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch(function (err) {
+        const errors = err.response.data;             
+        alertReact.error(`${errors.message}`)          
+        console.dir(err);
     });
   }
 

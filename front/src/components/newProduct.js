@@ -4,8 +4,11 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 import './ComponentsCSS/newProduct.css'
+import { useAlert } from 'react-alert'
 
 function NewProduct( ) {
+
+  const alertReact = useAlert();  
 
   const [ name , setName ] = useState('');
   const [ price , setPrice ] = useState('');
@@ -55,9 +58,15 @@ function NewProduct( ) {
       setUnits('');
       setLocation('');
       setDescription('');
+      alertReact.success("Creación exitosa!!")
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch(function (err) {
+      const errors = err.response.data.errors;     
+     
+      for( const key in errors){         
+        alertReact.error(`${errors[key].message}`)
+      }    
+      console.dir(errors);
     });
   }
 
