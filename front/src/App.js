@@ -19,6 +19,7 @@ import NewProduct from './components/NewProduct';
 import Authentication from './components/Authentication';
 import AboutUs from './pages/AboutUs'
 import ProductView from './pages/ProductView';
+import MyProductView from './pages/MyProductView';
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -53,9 +54,10 @@ function App() {
           <PrivateRoute exact path="/UserProfile" component={UserProfile}></PrivateRoute>
           <PrivateRoute exact path="/ProductsList" component={ProductsList}></PrivateRoute>
           <PrivateRoute exact path="/Authentication" component={Authentication}></PrivateRoute>
+          <PrivateRoute exact path="/UserProfile/ProducerPL/MyProductView/:id" component={MyProductView}></PrivateRoute>
           <Route path="/ProductsList/ProductView/:id">
             <ProductView />
-          </Route>          
+          </Route>
 
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>

@@ -1,9 +1,11 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 import {
   Link,
   useHistory,
 }from 'react-router-dom';
+import store from '../store/store';
 import { useDispatch , useSelector } from 'react-redux';
+import { login } from '../store/authreducer';
 import './ComponentsCSS/UserProfile.css';
 import axios from 'axios';
 
@@ -25,18 +27,18 @@ function ProducerProfile() {
           Authorization : `Bearer ${localStorage.getItem('token')}`
         }
       })
-      // .then( ( ) => {
-      // })
+      .then(( data ) => {
+            history.push('/');
+      })
       .catch( function (error) {
         console.log(error);
       })
-      history.push('/');
     }
 
     return(
       <div className = 'profileContainer ProducerProfile flexible-col justify-content-center align-items-center' >
         <hr></hr>
-        <img className='profilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg' alt = '' ></img>
+        <img className='profilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></img>
         <h3>Nombre: {name} {lname}</h3>
         <h3>Cel: {phone}</h3>
         <h3>e-mail: {email}</h3>

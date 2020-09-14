@@ -1,11 +1,14 @@
-import React , { useReducer , useState } from 'react';
+import React , { useState } from 'react';
 import {
-  Link
+  Link,
+  useHistory,
 } from 'react-router-dom';
 import axios from 'axios';
 import './ComponentsCSS/newProduct.css'
 
 function NewProduct( ) {
+
+  const history = useHistory();
 
   const [ name , setName ] = useState('');
   const [ price , setPrice ] = useState('');
@@ -18,7 +21,6 @@ function NewProduct( ) {
   function handleFile ( event ) {
     setFile(event.target.files[0]);
     readFile(event.target.files[0]);
-    console.log(event.target.files);
   }
 
   function readFile( file ) {
@@ -55,6 +57,7 @@ function NewProduct( ) {
       setUnits('');
       setLocation('');
       setDescription('');
+      history.push('/ProducerPL');
     })
     .catch(function (error) {
       console.log(error);

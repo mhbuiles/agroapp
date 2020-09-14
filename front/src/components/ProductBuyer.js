@@ -1,13 +1,7 @@
 import React from 'react'
 import './ComponentsCSS/ProductBuyer.css'
 import {
-    BrowserRouter as Router,
-    Link,
-    Switch,
-    Route,
-    Redirect,
-    withRouter,
-    useHistory,
+    Link
   } from 'react-router-dom';
 
 
@@ -25,10 +19,10 @@ function ProductBuyer({ product }){
                     <p className='prodInfo'>{product.price} {'Pesos'}</p>
                     <h3 className='prodTitle'>Ubicación</h3>
                     <p className='prodInfo'>{product.location}</p>
-                </div>   
+                </div>
                 <div>
                     <h3 className='prodDetails'>Detalles</h3>
-                </div>         
+                </div>
             </div>
         </Link>
     );

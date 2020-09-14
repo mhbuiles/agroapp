@@ -26,12 +26,6 @@ a {
     width: 100%;
     margin: 15px 0;
 }
-.prodDetails{
-    font-size: 16px;
-    text-decoration: underline;
-    color: coral;
-    text-transform: uppercase;
-}
 .prodViewHeader{
     color: #659BDB;
     font-weight: bold;
@@ -41,21 +35,19 @@ a {
     text-align: left;
     padding: 5px 10px;
 }
-.prodViewAdd {
-    width:  150px;
+.prodViewDelete {
+    width: 150px;
     border-radius: 5px;
     border: none;
     padding: 8px 8px;
     margin: 20px 5px 20px 5px;
-    background-color: #659BDB;
+    background-color: #de1010;
     color: #fff;
   }
-.prodViewReturn{
-  width: 150px;
+.MyProductViewButtonReturn {
   border-radius: 5px;
   border: none;
   padding: 8px 8px;
-  margin: 20px 5px 20px 5px;
-  background-color: #BC986A;
-  color: #fff;
+  margin: 15px 5px 15px 5px;
+  width: 150px;
 }

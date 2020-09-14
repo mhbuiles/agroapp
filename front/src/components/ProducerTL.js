@@ -11,7 +11,7 @@ class ProducerTL extends React.Component {
   render() {
     return(
       <div className = 'prodTlContainer ProducerTL flexible-col justify-content-center align-items-center' >
-        <img className='prodTlProfilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></img>
+        <img className='prodTlProfilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg' alt = '' ></img>
         <h2>Nombre de usuario</h2>
         <h3>Mis transacciones</h3>
         <div className='prodTlTransactionsCont'>
