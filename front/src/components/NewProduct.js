@@ -9,7 +9,10 @@ import { useAlert } from 'react-alert'
 
 function NewProduct( ) {
 
+<<<<<<< HEAD:front/src/components/NewProduct.js
   const alertReact = useAlert();
+=======
+>>>>>>> a357c191ff95513373d11069fde1dbf0ca4ce9ee:front/src/components/newProduct.js
   const history = useHistory();
 
   const [ name , setName ] = useState('');

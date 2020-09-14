@@ -12,6 +12,7 @@ function ProducerProfile() {
   const [editMode, setEditMode] = useState(false);
   const history = useHistory();
 
+
   const name = useSelector(state => state.authReducer.name);
   const lname = useSelector(state => state.authReducer.lname);
   const phone = useSelector(state => state.authReducer.phone);
