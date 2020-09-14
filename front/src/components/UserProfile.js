@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import {
   Link,
-} from 'react-router-dom';
-import store from '../store/store';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../store/authreducer';
-import './ComponentsCSS/UserProfile.css'
+  useHistory,
+}from 'react-router-dom';
+import { useDispatch , useSelector } from 'react-redux';
+import './ComponentsCSS/UserProfile.css';
 import axios from 'axios';
+
 
 function ProducerProfile() {
   const [editMode, setEditMode] = useState(false);
+  const history = useHistory();
 
   const name = useSelector(state => state.authReducer.name);
   const lname = useSelector(state => state.authReducer.lname);
@@ -19,6 +20,20 @@ function ProducerProfile() {
   const handleEditMode = () => {
     setEditMode(!editMode)
   };
+
+  function deleteUser() {
+      axios({
+        method : 'DELETE',
+        url : `http://localhost:8000/users`,
+        headers : {
+          Authorization : `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      .catch( function (error) {
+        console.log(error);
+      })
+      history.push('/');
+    }
 
   return (
     <div className='profileContainer ProducerProfile flexible-col justify-content-center align-items-center' >
@@ -37,7 +52,7 @@ function ProducerProfile() {
         {editMode ? <button className=''>Guardar Datos</button> : <button onClick={handleEditMode} className='profileButtonEdit'>Editar perfil</button>}
       </fieldset>
       <fieldset>
-        <button className='profileButtonDelete'>Eliminar cuenta</button>
+        <button onClick = {deleteUser} className='profileButtonDelete'>Eliminar cuenta</button>
       </fieldset>
     </div>
   )
