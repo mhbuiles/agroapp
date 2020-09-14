@@ -5,12 +5,30 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import { Redirect } from 'react-router-dom';
+import AlertTemplate from 'react-alert-template-basic'
+
+
+// optional configuration for React Alert
+const options = {  
+  position: positions.TOP_CENTER,    
+  offset: '15px', 
+  timeout: 4000,
+  transition: transitions.SCALE,
+  containerStyle: {
+    zIndex: 100, 
+    padding: "50px 5px"   
+  }
+}
 
 ReactDOM.render(
   <Provider store = {store}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+      <AlertProvider template={AlertTemplate} {...options}>
+        <App />
+      </AlertProvider>
+    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );
