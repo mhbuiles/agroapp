@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components'
 import { connect } from 'react-redux';
 import { logout } from '../store/authreducer';
 import { useHistory } from 'react-router-dom';

@@ -1,5 +1,4 @@
 import React , { useReducer , useEffect } from 'react';
-import styled from 'styled-components';
 import {
   Link,
   useHistory,
@@ -43,7 +42,7 @@ function ProducerPL( ) {
       localStorage.removeItem('token');
       history.push('/Authentication');
     })
-  } , [] )
+  } , [ history ] )
 
   const { products } = state;
 

@@ -2,9 +2,10 @@ import React, { useReducer, useEffect } from 'react'
 import axios from 'axios';
 import {
   Link,
-  useParams
+  useParams,
+  useHistory,
 } from 'react-router-dom'
-import '../components/ComponentsCSS/ProductView.css'
+import '../components/ComponentsCSS/MyProductView.css'
 
 function reducer(prevState, newState) {
     return {
@@ -17,28 +18,43 @@ const initialState = {
     product: {},
 };
 
-function ProductView() {
-    const [ state , setState ] = useReducer( reducer , initialState );
-    let { id } = useParams();
+function MyProductView() {
+  const history = useHistory();
+  const [ state , setState ] = useReducer( reducer , initialState );
+  let { id } = useParams();
 
-    useEffect(() => {
-        axios({
-            method : 'GET',
-            url : `http://localhost:8000/products/${id}`
-          })
-          .then(( data ) => {
-                setState( { product : data.data } )
-          })
-          .catch( function (error) {
-            console.log(error);
-          })
-    }, [ id ])
+  useEffect(() => {
+      axios({
+          method : 'GET',
+          url : `http://localhost:8000/products/${id}`
+        })
+        .then(( data ) => {
+              setState( { product : data.data } )
+        })
+        .catch( function (error) {
+          console.log(error);
+        })
+  }, [ id ])
 
+  function deleteProduct() {
+    axios({
+      method : 'DELETE',
+      url : `http://localhost:8000/products/${id}`,
+      headers : {
+        Authorization : `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    .then(( data ) => {
+          history.push('/ProducerPL');
+    })
+    .catch( function (error) {
+      console.log(error);
+    })
+  }
 
   return(
     <div className='prodViewContainer beigeBG'>
       <h2 className='prodViewHeader'>Detalles de Producto</h2>
-
       <div>
         <div className='prodViewSmallCont'>
             <h3 className='prodViewTitle'>Producto</h3>
@@ -53,16 +69,13 @@ function ProductView() {
             <h3 className='prodViewTitle'>Descripción</h3>
             <p className='prodViewDesc'>{state.product.description}</p>
         </div>
-
         <fieldset>
-          <button className='prodViewReturn'><Link to = '/ProductsList'>Regresar</Link></button>
-          <button className='prodViewAdd'>Agregar al carrito</button>
+          <button className='MyProductViewButtonReturn'><Link to = '/ProducerPL'>Regresar</Link></button>
+          <button onClick = {deleteProduct} className='prodViewDelete'>Eliminar producto</button>
         </fieldset>
-
       </div>
-
     </div>
   )
 }
 
-export default ProductView;
+export default MyProductView;

@@ -1,6 +1,7 @@
-import React , { useReducer , useState } from 'react';
+import React , { useState } from 'react';
 import {
-  Link, useHistory
+  Link,
+  useHistory,
 } from 'react-router-dom';
 import axios from 'axios';
 import './ComponentsCSS/newProduct.css'
@@ -8,7 +9,8 @@ import { useAlert } from 'react-alert'
 
 function NewProduct( ) {
 
-  const alertReact = useAlert();  
+  const alertReact = useAlert();
+  const history = useHistory();
 
   const [ name , setName ] = useState('');
   const [ price , setPrice ] = useState('');
@@ -18,12 +20,9 @@ function NewProduct( ) {
   const [ file , setFile ] = useState(null);
   const [ imageread , setImageread ] = useState(null);
 
-  const history = useHistory();
-
   function handleFile ( event ) {
     setFile(event.target.files[0]);
     readFile(event.target.files[0]);
-    console.log(event.target.files);
   }
 
   function readFile( file ) {
@@ -61,14 +60,14 @@ function NewProduct( ) {
       setLocation('');
       setDescription('');
       alertReact.success("Creación exitosa!!")
-      history.push('/ProductsList');
+      history.push('/ProducerPL');
     })
     .catch(function (err) {
-      const errors = err.response.data.errors;     
-     
-      for( const key in errors){         
+      const errors = err.response.data.errors;
+
+      for( const key in errors){
         alertReact.error(`${errors[key].message}`)
-      }    
+      }
       console.dir(errors);
     });
   }
