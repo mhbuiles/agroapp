@@ -25,6 +25,7 @@ function ProducerPL( ) {
   const history = useHistory();
   const name = useSelector( state => state.authReducer.name );
   const lname = useSelector( state => state.authReducer.lname );
+  const products = useSelector( state => state.authReducer.products);
   const [ state , setState ] = useReducer( reducer , initialState );
 
   useEffect( () => {
@@ -44,9 +45,6 @@ function ProducerPL( ) {
     })
   } , [ history ] )
 
-  const { products } = state;
-
-
     return(
 
       <div className = 'prodPlContainer ProducerPL flexible-col justify-content-center align-items-center' >
@@ -54,7 +52,7 @@ function ProducerPL( ) {
         <h2>{name} {lname}</h2>
         <h3>Mis productos</h3>
         <div className = 'prodPlProductsCont'>
-          <Products products = {products} ></Products>
+          <Products products = {state.products} ></Products>
         </div>
         <hr></hr>
         <button className='prodPlButtonReturn'><Link to = '/UserProfile'>Regresar</Link></button>

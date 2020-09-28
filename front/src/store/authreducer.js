@@ -1,5 +1,7 @@
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
+const DELETEPRODUCT = 'DELETEPRODUCT';
+
 
 export function login( user ) {
   return {
@@ -14,6 +16,13 @@ export function logout() {
   }
 }
 
+export function deleteProdPl( product ) {
+  return {
+    type : DELETEPRODUCT,
+    payload : product,
+  }
+}
+
 const initialState = {
   authenticated : false,
   name : '',
@@ -21,6 +30,8 @@ const initialState = {
   email : '',
   phone : '',
   products : [],
+  id_number : '',
+  address : '',
 }
 
 export function authReducer( prevState = initialState , action ) {
@@ -35,10 +46,19 @@ export function authReducer( prevState = initialState , action ) {
         phone : action.payload.phone,
         products : action.payload.products,
         userID : action.payload._id,
+        id_number : action.payload.id_number,
+        address : action.payload.address,
       };
     case LOGOUT:
       return {
         authenticated : false
+      };
+    case DELETEPRODUCT:
+      return {
+        ...prevState,
+        products : prevState.products.filter( product => {
+          return product._id !== action.payload._id
+        })
       }
       break;
     default:
