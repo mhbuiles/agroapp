@@ -6,7 +6,6 @@ import {
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/authreducer';
-import { authReducer} from '../store/authreducer';
 import './ComponentsCSS/Authentication.css'
 import { useAlert } from 'react-alert'
 
@@ -27,7 +26,7 @@ function Authentication( ) {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const alertReact = useAlert(); 
+  const alertReact = useAlert();
   const [ state , setState ] = useReducer( reducer , initialState );
 
   function handleChange(event) {
@@ -37,7 +36,7 @@ function Authentication( ) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    
+
     axios({
       method : 'POST',
       url : 'http://localhost:8000/users/signin',
@@ -50,9 +49,8 @@ function Authentication( ) {
       setState({ email : '' , password : '' });
     })
     .catch(function (err) {
-        const errors = err.response.data;             
-        alertReact.error(`${errors.message}`)          
-        console.dir(err);
+        const errors = err.response.data;
+        alertReact.error(`${errors.message}`)
     });
   }
 

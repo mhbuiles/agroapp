@@ -6,7 +6,6 @@ import {
   Route,
   Redirect,
   useHistory,
-  useParams
 } from 'react-router-dom';
 import Menu from './components/Menu'
 import Home from './components/Home'
@@ -20,6 +19,8 @@ import Authentication from './components/Authentication';
 import AboutUs from './pages/AboutUs'
 import ProductView from './pages/ProductView';
 import MyProductView from './pages/MyProductView';
+import Cart from './pages/Cart';
+import Response from './pages/Response';
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -30,7 +31,7 @@ function PrivateRoute(props) {
     if(!token) {
       history.push('/Authentication')
     }
-  } , []  );
+  } , [history]  );
 
   return (
     <Route {...props} />
@@ -57,7 +58,8 @@ function App() {
           <Route path="/ProductsList/ProductView/:id">
             <ProductView />
           </Route>
-
+          <PrivateRoute exact path="/Cart" component={Cart}></PrivateRoute>
+          <PrivateRoute exact path="/response" component={Response}></PrivateRoute>
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>
       </Router>

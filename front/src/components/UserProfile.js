@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import {
   Link,
   useHistory,
-}from 'react-router-dom';
-import { useDispatch , useSelector } from 'react-redux';
+} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './ComponentsCSS/UserProfile.css';
 import axios from 'axios';
 
 
 function ProducerProfile() {
+
   const [editMode, setEditMode] = useState(false);
   const history = useHistory();
-
 
   const name = useSelector(state => state.authReducer.name);
   const lname = useSelector(state => state.authReducer.lname);
@@ -39,7 +39,7 @@ function ProducerProfile() {
   return (
     <div className='profileContainer ProducerProfile flexible-col justify-content-center align-items-center' >
       <hr></hr>
-      <img className='profilePic' src='https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg'></img>
+      <img className='profilePic' src='https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg' alt = ''></img>
       {editMode ? <input placeholder="Nombre"/> : <h3>Nombre: {name} {lname}</h3>}
       {editMode ? <input placeholder="Cel" /> : <h3>Cel: {phone}</h3>}
       {editMode ? <input placeholder="e-mail" /> : <h3>e-mail: {email}</h3>}

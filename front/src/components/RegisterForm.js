@@ -25,12 +25,12 @@ const initialState = {
 };
 
 
-function RegisterForm(){   
+function RegisterForm(){
 
-  const alertReact = useAlert();  
+  const alertReact = useAlert();
   const [ state , setState ] = useReducer( reducer , initialState );
 
-  
+
 
   handleChange = (event) => {
     const { value , name } = event.target;
@@ -42,7 +42,7 @@ function RegisterForm(){
     setState( { [name] : value } );
   }
 
-  
+
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -54,23 +54,20 @@ function RegisterForm(){
     })
     .then( () => {
       setState({ name : '' , lname : '' , email : '' , phone : '' , address : '' , id_type : '' , id_number : '' , password : '' });
-      alertReact.success("Registro exitoso!!") 
+      alertReact.success("Registro exitoso!!")
     } )
     .catch(function (err) {
-      const errors = err.response.data.errors;     
-     
-      for( const key in errors){         
+      const errors = err.response.data.errors;
+
+      for( const key in errors){
         alertReact.error(`${errors[key].message}`)
       }    
-
-      console.dir(err)
-        
     });
-    
+
   }
 
     const { name , lname , email , phone , address , id_type , id_number , password } = state;
-  
+
     return(
       <div className="registerContainer user-registration-form-container justify-content-center flexible-col">
         <h3>Formulario de Registro</h3>
@@ -120,7 +117,7 @@ function RegisterForm(){
         </form>
       </div>
     )
-  
+
 }
 
 

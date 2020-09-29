@@ -1,13 +1,15 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer , useEffect } from 'react';
 import axios from 'axios';
 import {
   Link,
   useParams,
   useHistory,
-} from 'react-router-dom'
-import '../components/ComponentsCSS/MyProductView.css'
+} from 'react-router-dom';
+import '../components/ComponentsCSS/MyProductView.css';
+import { useDispatch } from 'react-redux';
+import { deleteProdPl } from '../store/authreducer';
 
-function reducer(prevState, newState) {
+function reducer( prevState , newState ) {
     return {
       ...prevState,
       ...newState,
@@ -19,6 +21,8 @@ const initialState = {
 };
 
 function MyProductView() {
+
+  const dispatch = useDispatch();
   const history = useHistory();
   const [ state , setState ] = useReducer( reducer , initialState );
   let { id } = useParams();
@@ -36,7 +40,7 @@ function MyProductView() {
         })
   }, [ id ])
 
-  function deleteProduct() {
+  function deleteProduct( product ) {
     axios({
       method : 'DELETE',
       url : `http://localhost:8000/products/${id}`,
@@ -50,6 +54,7 @@ function MyProductView() {
     .catch( function (error) {
       console.log(error);
     })
+    dispatch( deleteProdPl( product ) );
   }
 
   return(
@@ -59,7 +64,7 @@ function MyProductView() {
         <div className='prodViewSmallCont'>
             <h3 className='prodViewTitle'>Producto</h3>
             <p className='prodViewInfo'>{state.product.name}</p>
-            <img className='prodViewImage' src={state.product.image}></img>
+            <img className='prodViewImage' src={state.product.image} alt = ''></img>
         </div>
         <div className='prodViewSmallCont'>
             <h3 className='prodViewTitle'>Precio</h3>
@@ -71,7 +76,7 @@ function MyProductView() {
         </div>
         <fieldset>
           <button className='MyProductViewButtonReturn'><Link to = '/ProducerPL'>Regresar</Link></button>
-          <button onClick = {deleteProduct} className='prodViewDelete'>Eliminar producto</button>
+          <button onClick = { () => deleteProduct( state.product ) } className='prodViewDelete'>Eliminar producto</button>
         </fieldset>
       </div>
     </div>

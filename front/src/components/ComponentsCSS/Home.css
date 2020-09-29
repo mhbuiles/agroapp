@@ -5,6 +5,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #23d7f7;
 }
 .homeLoginCont {
     display: flex;

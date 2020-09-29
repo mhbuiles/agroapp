@@ -68,7 +68,6 @@ function NewProduct( ) {
       for( const key in errors){
         alertReact.error(`${errors[key].message}`)
       }
-      console.dir(errors);
     });
   }
 
