@@ -33,7 +33,6 @@ export function cartReducer( prevState = initialState , action ) {
           return product._id !== action.payload._id
         })
       };
-      break;
     default:
       return prevState;
   }

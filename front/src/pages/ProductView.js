@@ -46,7 +46,6 @@ function ProductView() {
   function addToCart() {
     dispatch(add(state.product));
     alert.success('Producto agregado!');
-    console.log('Hola');
   }
 
   return(

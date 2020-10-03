@@ -20,43 +20,47 @@ function Cart() {
   let total = 0;
   for ( let value of products ) {
     total = total + parseInt(value.price);
+  };
+
+  let prods_ids = products.map( product => product._id ).join(',');
+
+  function handlePayment() {
+
+    const paymentHandler = window.ePayco.checkout.configure({
+      key : process.env.REACT_APP_EPAYCO_PUBLIC_KEY,
+      test : true
+    });
+
+    paymentHandler.open({
+      external : 'false',
+      amount : `${total}`,
+      tax : '0',
+      tax_base : '0',
+      name : 'Compra AgroApp',
+      description : 'AgroApp SAS',
+      currency : 'cop',
+      country : 'CO',
+      lang : 'en',
+      invoice : `AGP${parseInt(Math.random()*1000)}`,
+      extra1 : prods_ids,
+      response : `${process.env.REACT_APP_URL}/response`,
+      autoclick : 'false',
+      name_billing : `${name} ${lname}`,
+      adress_billing : `${address}`,
+      email_billing : `${email}`,
+      type_doc_billing : 'CC',
+      mobile_phone_billing : `${phone}`,
+      number_doc_billing : `${id_number}`,
+    });
   }
 
-    function handlePayment() {
-      const paymentHandler = window.ePayco.checkout.configure({
-        key : process.env.REACT_APP_EPAYCO_PUBLIC_KEY,
-        test : true
-      })
-
-      paymentHandler.open({
-        external : 'false',
-        amount : `${total}`,
-        tax : '0',
-        tax_base : '0',
-        name : 'Compra AgroApp',
-        description : 'Del campo a tu casa',
-        currency : 'cop',
-        country : 'CO',
-        lang : 'en',
-        extra1 : 'extra1',
-        response : `${process.env.REACT_APP_URL}/response`,
-        autoclick : 'false',
-        name_billing : `${name} ${lname}`,
-        adress_billing : `${address}`,
-        email_billing : `${email}`,
-        type_doc_billing : 'CC',
-        mobile_phone_billing : `${phone}`,
-        number_doc_billing : `${id_number}`,
-      })
-    }
-
-    function deleteProduct(product) {
-      dispatch(deleteFromCart(product));
-    }
+  function deleteProduct(product) {
+    dispatch(deleteFromCart(product));
+  }
 
   return (
     <div className = 'cartBig'>
-      <h1>Mi carrito de compras</h1>
+      <h3>Mi carrito de compras</h3>
       <div className='cartCont'>
         { products.map( product => {
           return <div key = {product._id} className = 'cartProductInfo'>

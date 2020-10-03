@@ -21,6 +21,7 @@ import ProductView from './pages/ProductView';
 import MyProductView from './pages/MyProductView';
 import Cart from './pages/Cart';
 import Response from './pages/Response';
+import TransactionView from './pages/TransactionView';
 
 function PrivateRoute(props) {
   const history = useHistory();
@@ -60,6 +61,7 @@ function App() {
           </Route>
           <PrivateRoute exact path="/Cart" component={Cart}></PrivateRoute>
           <PrivateRoute exact path="/response" component={Response}></PrivateRoute>
+          <PrivateRoute exact path="/ProducerTL/Transactions/:id" component={TransactionView}></PrivateRoute>
           <Redirect from = '*' to = '/'></Redirect>
         </Switch>
       </Router>

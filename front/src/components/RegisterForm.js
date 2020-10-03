@@ -22,6 +22,10 @@ const initialState = {
   id_type : '',
   id_number : '',
   password : '',
+  city : '',
+  baccount : '',
+  bacctype : '',
+  bank : '',
 };
 
 
@@ -53,7 +57,7 @@ function RegisterForm(){
       data: state
     })
     .then( () => {
-      setState({ name : '' , lname : '' , email : '' , phone : '' , address : '' , id_type : '' , id_number : '' , password : '' });
+      setState({ name : '' , lname : '' , email : '' , phone : '' , address : '' , id_type : '' , id_number : '' , password : '' , city : '' , baccount : '' , bacctype : '' , bank : '' });
       alertReact.success("Registro exitoso!!")
     } )
     .catch(function (err) {
@@ -61,16 +65,16 @@ function RegisterForm(){
 
       for( const key in errors){
         alertReact.error(`${errors[key].message}`)
-      }    
+      }
     });
 
   }
 
-    const { name , lname , email , phone , address , id_type , id_number , password } = state;
+    const { name , lname , email , phone , address , id_type , id_number , password , city , baccount , bacctype , bank } = state;
 
     return(
       <div className="registerContainer user-registration-form-container justify-content-center flexible-col">
-        <h3>Formulario de Registro</h3>
+        <h4>Formulario de Registro</h4>
         <form onSubmit = {handleSubmit}>
           <fieldset>
             <input onChange = {handleChange} placeholder="Nombres *" name="name" className="registerInputForm user-registration-form-input" value = {name} />
@@ -97,11 +101,27 @@ function RegisterForm(){
           </fieldset>
 
           <fieldset>
+            <input onChange = {handleChange} placeholder="Ciudad *" name="city" className="registerInputForm user-registration-form-input" value = {city} />
+          </fieldset>
+
+          <fieldset>
             <input onChange = {handleChange} placeholder="Tipo de Identificación" name="id_type" className="registerInputForm user-registration-form-input" value = {id_type} />
           </fieldset>
 
           <fieldset>
             <input onChange = {handleChange} placeholder="Número de Identificación" name="id_number" className="registerInputForm user-registration-form-input" value = {id_number} />
+          </fieldset>
+
+          <fieldset>
+            <input onChange = {handleChange} placeholder="Número de cuenta para pagos" name="baccount" className="registerInputForm user-registration-form-input" value = {baccount} />
+          </fieldset>
+
+          <fieldset>
+            <input onChange = {handleChange} placeholder="Tipo de cuenta" name="bacctype" className="registerInputForm user-registration-form-input" value = {bacctype} />
+          </fieldset>
+
+          <fieldset>
+            <input onChange = {handleChange} placeholder="Nombre entidad financiera" name="bank" className="registerInputForm user-registration-form-input" value = {bank} />
           </fieldset>
 
           <button className='registerButtonSubmit' type="submit">Registrarse</button>
