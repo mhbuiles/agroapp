@@ -46,7 +46,6 @@ function Authentication( ) {
       localStorage.setItem( 'token' , data.token );
       history.push('/ProductsList');
       dispatch(login( data.user ));
-      setState({ email : '' , password : '' });
     })
     .catch(function (err) {
         const errors = err.response.data;
