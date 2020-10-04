@@ -30,7 +30,8 @@ function ProductView() {
     useEffect(() => {
         axios({
             method : 'GET',
-            url : `http://localhost:8000/products/${id}`,
+            baseURL: process.env.REACT_APP_SERVER_URL,
+            url : `/products/${id}`,
             headers : {
               Authorization : `Bearer ${localStorage.getItem('token')}`
             }

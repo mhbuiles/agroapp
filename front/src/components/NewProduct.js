@@ -46,7 +46,8 @@ function NewProduct( ) {
 
     axios({
       method : 'POST',
-      url : 'http://localhost:8000/products',
+      baseURL: process.env.REACT_APP_SERVER_URL,
+      url : '/products',
       data: data2,
       headers : {
         Authorization : `Bearer ${localStorage.getItem('token')}`,

@@ -31,7 +31,8 @@ function ProducerPL( ) {
   useEffect( () => {
     axios({
       method : 'GET',
-      url : 'http://localhost:8000/products/myproducts',
+      baseURL: process.env.REACT_APP_SERVER_URL,
+      url : '/products/myproducts',
       headers : {
         Authorization : `Bearer ${localStorage.getItem('token')}`
       }

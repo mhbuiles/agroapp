@@ -18,7 +18,8 @@ function ProducerTL() {
   useEffect( () => {
     axios({
       method : 'GET',
-      url : 'http://localhost:8000/transactions',
+      baseURL: process.env.REACT_APP_SERVER_URL,
+      url : '/transactions',
       headers : {
         Authorization : `Bearer ${localStorage.getItem('token')}`
       }

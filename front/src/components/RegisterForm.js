@@ -57,7 +57,8 @@ function RegisterForm(){
 
     await axios({
       method : 'POST',
-      url : 'http://localhost:8000/users',
+      baseURL: process.env.REACT_APP_SERVER_URL,
+      url : '/users',
       data: data2
     })
     .then( () => {
