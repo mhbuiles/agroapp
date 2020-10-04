@@ -55,7 +55,7 @@ class ProductsList extends React.Component{
         this.setState({searchbar: event.target.value});
     }
     dynamicSearch = () => {
-      return this.state.products.filter(product => product.name.toLowerCase().includes(this.state.searchbar.toLowerCase()))
+      return this.state.products.filter( product => product.name.toLowerCase().includes(this.state.searchbar.toLowerCase()) || product.location.toLowerCase().includes(this.state.searchbar.toLowerCase()) )
     }
 
     render(){

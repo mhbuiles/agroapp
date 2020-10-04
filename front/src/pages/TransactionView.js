@@ -1,13 +1,15 @@
 import React , { useEffect , useState } from 'react';
 import axios from 'axios';
 import {
-  useParams
+  useParams,
+  useHistory,
 } from 'react-router-dom';
 import '../components/ComponentsCSS/TransactionView.css';
 
 function TransactionView() {
 
   let { id } = useParams();
+  const history = useHistory();
   const [ state , setState ] = useState( {} );
   const [ boughtProducts , setboughtProducts ] = useState( [] );
 
@@ -39,17 +41,27 @@ function TransactionView() {
 
   return(
     <div className = 'transactionView'>
-      <p>Fecha de la transacción: {state.createdAt}</p>
-      <p>Número de referencia del pago: {state.epaycoRef}</p>
-      <p>Monto: COP${state.value}</p>
-      <p>Estado de la transacción: {state.transactResponse}</p>
-      <p>Número de factura: {state.invoice}</p>
-      { boughtProducts.map( product =>
-        <div className = 'transactSmallProdInfo' key = {product._id}>
-          <p>{product.name} ${product.price} por {product.units}</p>
-          <img className = 'transactionSmallProdThum' src = {product.image} alt = ''/>
-        </div>
-      )}
+      <h4 className = 'transactionViewTitle'>Fecha de la transacción</h4>
+      <h5 className = 'transactionViewInfo'>{state.createdAt}</h5>
+      <h4 className = 'transactionViewTitle'>Número de referencia del pago</h4>
+      <h5 className = 'transactionViewInfo'>{state.epaycoRef}</h5>
+      <h4 className = 'transactionViewTitle'>Monto</h4>
+      <h5 className = 'transactionViewInfo'>COP ${state.value}</h5>
+      <h4 className = 'transactionViewTitle'>Estado de la transacción</h4>
+      <h5 className = 'transactionViewInfo'>{state.transactResponse}</h5>
+      <h4 className = 'transactionViewTitle'>Número de factura</h4>
+      <h5 className = 'transactionViewInfo'>{state.invoice}</h5>
+      <h4 className = 'transactionViewTitle'>Productos comprados</h4>
+      <div className = 'transactionViewProducts'>
+        { boughtProducts.map( product =>
+          <div className = 'transactSmallProdInfo' key = {product._id}>
+            <h5 className = 'transactionViewInfo'>{product.name} ${product.price} por {product.units}</h5>
+            <img className = 'transactionSmallProdThum' src = {product.image} alt = ''/>
+          </div>
+        )}
+      </div>
+
+      <button className = 'returnButtonTransact' onClick = { () => history.push('/ProducerTL') }>Regresar</button>
     </div>
 
   )

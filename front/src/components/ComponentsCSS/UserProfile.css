@@ -1,9 +1,13 @@
 .profileContainer {
-  height: 100vh;
+  margin-top: 70px;
+  padding: 0 20px;
 }
-.profilePic {
-  width: 200px;
+.profilePicUser {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 .profileButtonEdit {
   width: 130px;
@@ -13,6 +17,7 @@
   margin: 20px 5px 20px 5px;
   background-color: #333;
   color: #fff;
+  display: none;
 }
 .profileButtonReturn {
   border-radius: 5px;
@@ -37,5 +42,24 @@
   margin: 20px 5px 20px 5px;
   width: 130px;
   background-color: #333;
+  color: #fff;
+}
+.profileTitle {
+    font-size: 25px;
+    padding: 5px;
+    background-color: #BC986A;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 20px;
+    margin: 15px 0;
+}
+.profileTitleContainer{
+  width: 100%;
+}
+.profileButton{
+  background-color: #659BDB;
+  padding: 10px 5px;
+  border-radius: 20px;
+  width: 200px;
   color: #fff;
 }

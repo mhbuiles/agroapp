@@ -1,9 +1,12 @@
 .prodPlContainer {
-  height: 100vh;
+  margin-top: 70px;
 }
 .prodPlProfilePic {
-  width: 200px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 .prodPlButtonEdit {
   width: 130px;
@@ -31,4 +34,14 @@
   box-sizing: border-box;
   border: 5px solid #DAAD86;
   border-radius: 20px;
+}
+.prodPlTitle {
+  font-size: 25px;
+  padding: 5px;
+  background-color: #BC986A;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 20px;
+  margin: 15px 0;
+  width: 70%;
 }
