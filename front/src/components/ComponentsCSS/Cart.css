@@ -31,7 +31,7 @@
   border: none;
   padding: 8px 8px;
   margin: 0px 5px 20px 5px;
-  background-color: #23f7a9;
+  background-color: #8D8741;
   color: #fff;
 }
 .deleteProdCart{
@@ -43,4 +43,18 @@
   font-size: 15px;
   color: red;
   font-weight: 800;
+}
+.cartViewTitle {
+  font-size: 20px;
+  padding: 5px;
+  background-color: #BC986A;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 20px;
+  margin: 15px auto;
+  width: 90%;
+}
+.cartViewInfo{
+  font-size: 18px;
+  color: #659BDB;
 }

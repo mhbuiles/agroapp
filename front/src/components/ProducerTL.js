@@ -13,6 +13,7 @@ function ProducerTL() {
   const [ transactions , setTransactions ] = useState( [] );
   const name = useSelector( state => state.authReducer.name );
   const lname = useSelector( state => state.authReducer.lname );
+  const image = useSelector( state => state.authReducer.image );
 
   useEffect( () => {
     axios({
@@ -32,11 +33,14 @@ function ProducerTL() {
 
   return(
     <div className = 'prodTlContainer ProducerTL flexible-col justify-content-center align-items-center' >
-      <img className='prodTlProfilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg' alt=""></img>
-      <h3>{name} {lname}</h3>
-      <h3>Mis transacciones</h3>
+    <hr/>
+      <img className='prodTlProfilePic' src = {image} alt=""></img>
+      <h3 className = 'blue'>{name} {lname}</h3>
+      <h3 className = 'prodTlTitle'>Mis transacciones</h3>
       <hr/>
-      <Transactions className='prodTlTransactionsCont' transacts = {transactions}></Transactions>
+      <div className='prodTlTransactionsCont' >
+        <Transactions transacts = {transactions}></Transactions>
+      </div>
       <hr></hr>
       <button className='prodTlButtonReturn'>
         <Link to = '/UserProfile'>Regresar</Link>

@@ -25,6 +25,7 @@ function ProducerPL( ) {
   const history = useHistory();
   const name = useSelector( state => state.authReducer.name );
   const lname = useSelector( state => state.authReducer.lname );
+  const image = useSelector( state => state.authReducer.image );
   const [ state , setState ] = useReducer( reducer , initialState );
 
   useEffect( () => {
@@ -47,9 +48,10 @@ function ProducerPL( ) {
     return(
 
       <div className = 'prodPlContainer ProducerPL flexible-col justify-content-center align-items-center' >
-        <img className = 'prodPlProfilePic' src = 'https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg' alt=""/>
-        <h3>{name} {lname}</h3>
-        <h3>Mis productos</h3>
+        <hr/>
+        <img className = 'prodPlProfilePic' src = {image} alt=""/>
+        <h3 className = 'blue'>{name} {lname}</h3>
+        <h3 className = 'prodPlTitle'>Mis productos</h3>
         <div className = 'prodPlProductsCont'>
           <Products products = {state.products} ></Products>
         </div>

@@ -32,6 +32,7 @@ const initialState = {
   products : [],
   id_number : '',
   address : '',
+  image : '',
 }
 
 export function authReducer( prevState = initialState , action ) {
@@ -48,6 +49,7 @@ export function authReducer( prevState = initialState , action ) {
         userID : action.payload._id,
         id_number : action.payload.id_number,
         address : action.payload.address,
+        image : action.payload.image,
       };
     case LOGOUT:
       return {

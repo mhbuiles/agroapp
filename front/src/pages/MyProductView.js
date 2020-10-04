@@ -58,25 +58,25 @@ function MyProductView() {
   }
 
   return(
-    <div className='prodViewContainer beigeBG'>
-      <h2 className='prodViewHeader'>Detalles de Producto</h2>
+    <div className='myProdViewContainer'>
+      <h2 className='myProdViewHeader'>Detalles de Producto</h2>
       <div>
-        <div className='prodViewSmallCont'>
-            <h3 className='prodViewTitle'>Producto</h3>
-            <p className='prodViewInfo'>{state.product.name}</p>
-            <img className='prodViewImage' src={state.product.image} alt = ''></img>
+        <div className='myProdViewSmallCont'>
+            <h3 className='myProdViewTitle'>Producto</h3>
+            <p className='myProdViewInfo'>{state.product.name}</p>
+            <img className='myProdViewImage' src={state.product.image} alt = ''></img>
         </div>
-        <div className='prodViewSmallCont'>
-            <h3 className='prodViewTitle'>Precio</h3>
-            <p className='prodViewInfo'>{state.product.price} {'Pesos'}</p>
-            <h3 className='prodViewTitle'>Ubicación</h3>
-            <p className='prodViewInfo'>{state.product.location}</p>
-            <h3 className='prodViewTitle'>Descripción</h3>
-            <p className='prodViewDesc'>{state.product.description}</p>
+        <div className='myProdViewSmallCont'>
+            <h3 className='myProdViewTitle'>Precio</h3>
+            <p className='myProdViewInfo'>{state.product.price} {'Pesos'}</p>
+            <h3 className='myProdViewTitle'>Ubicación</h3>
+            <p className='myProdViewInfo'>{state.product.location}</p>
+            <h3 className='myProdViewTitle'>Descripción</h3>
+            <p className='myProdViewDesc'>{state.product.description}</p>
         </div>
         <fieldset>
-          <button className='MyProductViewButtonReturn'><Link to = '/ProducerPL'>Regresar</Link></button>
-          <button onClick = { () => deleteProduct( state.product ) } className='prodViewDelete'>Eliminar producto</button>
+          <button className='myProductViewButtonReturn'><Link to = '/ProducerPL'>Regresar</Link></button>
+          <button onClick = { () => deleteProduct( state.product ) } className='myProdViewDelete'>Eliminar producto</button>
         </fieldset>
       </div>
     </div>

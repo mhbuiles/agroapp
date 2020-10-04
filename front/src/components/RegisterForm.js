@@ -1,4 +1,4 @@
-import React , { useReducer }from 'react'
+import React , { useReducer , useState }from 'react'
 import axios from 'axios';
 import {
   Link
@@ -6,58 +6,73 @@ import {
 import './ComponentsCSS/RegisterForm.css'
 import { useAlert } from 'react-alert'
 
-function reducer(prevState, newState) {
-  return {
-    ...prevState,
-    ...newState,
-  };
-}
-
-const initialState = {
-  name : '',
-  lname : '',
-  email : '',
-  phone : '',
-  address : '',
-  id_type : '',
-  id_number : '',
-  password : '',
-  city : '',
-  baccount : '',
-  bacctype : '',
-  bank : '',
-};
-
-
 function RegisterForm(){
 
   const alertReact = useAlert();
-  const [ state , setState ] = useReducer( reducer , initialState );
+  const [ name , setName ] = useState( '' );
+  const [ lname , setLname ] = useState( '' );
+  const [ email , setEmail ] = useState( '' );
+  const [ phone , setPhone ] = useState( '' );
+  const [ address , setAddress ] = useState( '' );
+  const [ id_type , setId_type ] = useState( '' );
+  const [ id_number , setId_number ] = useState( '' );
+  const [ password , setPassword ] = useState( '' );
+  const [ city , setCity ] = useState( '' );
+  const [ baccount , setBaccount ] = useState( '' );
+  const [ bacctype , setBacctype ] = useState( '' );
+  const [ bank , setBank ] = useState( '' );
+  const [ file , setFile ] = useState(null);
+  const [ imageread , setImageread ] = useState(null);
 
-
-
-  handleChange = (event) => {
-    const { value , name } = event.target;
-    setState( { [name] : value } );
+  function handleFile ( event ) {
+    setFile(event.target.files[0]);
+    readFile(event.target.files[0]);
   }
 
-  function handleChange(event) {
-    const { value , name } = event.target;
-    setState( { [name] : value } );
+  function readFile( file ) {
+    const reader = new FileReader();
+    reader.onload = event => setImageread(event.target.result);
+    reader.readAsDataURL( file );
   }
-
-
 
   async function handleSubmit(event) {
     event.preventDefault();
 
+    const data2 = new FormData();
+    data2.append( 'name' , name );
+    data2.append( 'lname' , lname );
+    data2.append( 'email' , email );
+    data2.append( 'phone' , phone );
+    data2.append( 'address' , address );
+    data2.append( 'id_type' , id_type );
+    data2.append( 'id_number' , id_number );
+    data2.append( 'password' , password );
+    data2.append( 'city' , city );
+    data2.append( 'baccount' , baccount );
+    data2.append( 'bacctype' , bacctype );
+    data2.append( 'bank' , bank );
+    if( file ) {
+      data2.append( 'file' , file , file.name );
+    }
+
     await axios({
       method : 'POST',
       url : 'http://localhost:8000/users',
-      data: state
+      data: data2
     })
     .then( () => {
-      setState({ name : '' , lname : '' , email : '' , phone : '' , address : '' , id_type : '' , id_number : '' , password : '' , city : '' , baccount : '' , bacctype : '' , bank : '' });
+      setName('');
+      setLname('');
+      setEmail('');
+      setPhone('');
+      setAddress('');
+      setId_type('');
+      setId_number('');
+      setPassword('');
+      setCity('');
+      setBaccount('');
+      setBacctype('');
+      setBank('');
       alertReact.success("Registro exitoso!!")
     } )
     .catch(function (err) {
@@ -70,58 +85,92 @@ function RegisterForm(){
 
   }
 
-    const { name , lname , email , phone , address , id_type , id_number , password , city , baccount , bacctype , bank } = state;
-
     return(
       <div className="registerContainer user-registration-form-container justify-content-center flexible-col">
         <h4>Formulario de Registro</h4>
         <form onSubmit = {handleSubmit}>
           <fieldset>
-            <input onChange = {handleChange} placeholder="Nombres *" name="name" className="registerInputForm user-registration-form-input" value = {name} />
+            <input onChange = { (event) => setName(event.target.value) } placeholder="Nombres" name="name" className="registerInputForm user-registration-form-input" value = {name} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Apellidos *" name="lname" className="registerInputForm user-registration-form-input" value = {lname} />
+            <input onChange = { (event) => setLname(event.target.value) } placeholder="Apellidos" name="lname" className="registerInputForm user-registration-form-input" value = {lname} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Correo electrónico *" name="email" className="registerInputForm user-registration-form-input" value = {email} />
+            <label className="newProdLabel" htmlFor = 'file' >Agregar una foto de perfil</label>
+            <input onChange = {handleFile} type = 'file' id = "file" name = "file" accept = 'image/*' className="registerInputForm user-registration-form-input"></input>
+            { imageread && ( <img src = {imageread} alt = '' className = 'fileReadImage'/>)}
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Contraseña *" name="password" type = 'password' className="registerInputForm user-registration-form-input" value = {password} />
+            <input onChange = { (event) => setEmail(event.target.value) } placeholder="Correo electrónico" name="email" className="registerInputForm user-registration-form-input" value = {email} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Teléfono *" name="phone" className="registerInputForm user-registration-form-input" value = {phone} />
+            <input onChange = { (event) => setPassword(event.target.value) } placeholder="Contraseña" name="password" type = 'password' className="registerInputForm user-registration-form-input" value = {password} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Dirección *" name="address" className="registerInputForm user-registration-form-input" value = {address} />
+            <input onChange = { (event) => setPhone(event.target.value) } placeholder="Teléfono" name="phone" className="registerInputForm user-registration-form-input" value = {phone} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Ciudad *" name="city" className="registerInputForm user-registration-form-input" value = {city} />
+            <input onChange = { (event) => setAddress(event.target.value) } placeholder="Dirección" name="address" className="registerInputForm user-registration-form-input" value = {address} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Tipo de Identificación" name="id_type" className="registerInputForm user-registration-form-input" value = {id_type} />
+            <input onChange = { (event) => setCity(event.target.value) } placeholder="Ciudad" name="city" className="registerInputForm user-registration-form-input" value = {city} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Número de Identificación" name="id_number" className="registerInputForm user-registration-form-input" value = {id_number} />
+            <select onChange = { (event) => setId_type(event.target.value) } name = 'id_type' value = {id_type} className="blue selectPadding">
+              <option value = '' disabled selected hidden>Elija el tipo de identificación</option>
+              <option value = 'CC'>CC</option>
+              <option value = 'CE'>CE</option>
+              <option value = 'PA'>PA</option>
+            </select>
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Número de cuenta para pagos" name="baccount" className="registerInputForm user-registration-form-input" value = {baccount} />
+            <input onChange = { (event) => setId_number(event.target.value) } placeholder="Número de Identificación" name="id_number" className="registerInputForm user-registration-form-input" value = {id_number} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Tipo de cuenta" name="bacctype" className="registerInputForm user-registration-form-input" value = {bacctype} />
+            <input onChange = { (event) => setBaccount(event.target.value) } placeholder="Número de cuenta para pagos" name="baccount" className="registerInputForm user-registration-form-input" value = {baccount} />
           </fieldset>
 
           <fieldset>
-            <input onChange = {handleChange} placeholder="Nombre entidad financiera" name="bank" className="registerInputForm user-registration-form-input" value = {bank} />
+            <select onChange = { (event) => setBacctype(event.target.value) } name = 'bacctype' value = {bacctype} className="blue selectPadding">
+              <option value = '' disabled selected hidden>Elija el tipo de cuenta bancaria</option>
+              <option value = 'Ahorros'>Ahorros</option>
+              <option value = 'Corriente'>Corriente</option>
+              <option value = ''>N/A</option>
+            </select>
+          </fieldset>
+
+          <fieldset>
+            <select onChange = { (event) => setBank(event.target.value) } name = 'bank' value = {bank} className="blue selectPadding">
+              <option value = '' disabled selected hidden>Elija su entidad financiera</option>
+              <option value = ''>N/A</option>
+              <option value = 'Bancolombia'>Bancolombia</option>
+              <option value = 'Banco de Bogotá'>Banco de Bogotá</option>
+              <option value = 'Davivienda'>Davivienda</option>
+              <option value = 'Nequi'>Nequi</option>
+              <option value = 'Daviplata'>Daviplata</option>
+              <option value = 'Banco de Occidente'>Banco de Occidente</option>
+              <option value = 'Banco AVVillas'>Banco AVVillas</option>
+              <option value = 'Banco Popular'>Banco Popular</option>
+              <option value = 'Itaú'>Itaú</option>
+              <option value = 'Colpatria'>Colpatria</option>
+              <option value = 'BBVA'>BBVA</option>
+              <option value = 'Banco Agrario'>Banco Agrario</option>
+              <option value = 'Citibank'>Citibank</option>
+              <option value = 'Banco Caja Social'>Banco Caja Social</option>
+              <option value = 'Banco Falabella'>Banco Falabella</option>
+              <option value = 'Banco Pichincha'>Banco Pichincha</option>
+              <option value = 'Bancoomeva'>Bancoomeva</option>
+            </select>
           </fieldset>
 
           <button className='registerButtonSubmit' type="submit">Registrarse</button>
@@ -129,10 +178,6 @@ function RegisterForm(){
           <button className='registerButtonReturn'>
             <Link to = '/'>Regresar</Link>
           </button>
-
-          {/* <Alert variant='danger'>
-            This is a danger alert—check it out!
-          </Alert> */}
 
         </form>
       </div>

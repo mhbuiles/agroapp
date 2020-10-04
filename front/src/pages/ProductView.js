@@ -49,12 +49,12 @@ function ProductView() {
   }
 
   return(
-    <div className='prodViewContainer beigeBG'>
+    <div className='prodViewContainer'>
       <h2 className='prodViewHeader'>Detalles de Producto</h2>
-
+      <h3 className='prodViewTitle'>Producto</h3>
       <div>
-        <div className='prodViewSmallCont'>
-            <h3 className='prodViewTitle'>Producto</h3>
+        <div className='prodViewSmallCont whiteBG prodViewImageCont'>
+
             <p className='prodViewInfo'>{state.product.name}</p>
             <img className='prodViewImage' src={state.product.image} alt = ''></img>
         </div>

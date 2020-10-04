@@ -57,14 +57,21 @@ function Response( { location } ) {
   return(
     <div className = 'responsePage'>
       <h2>Resumen de su pago</h2>
-      <p>Estado de la transacción: {state.x_response}</p>
-      <p>Número de referencia: {state.x_ref_payco}</p>
-      <p>Fecha y hora: {state.x_transaction_date}</p>
-      <p>Código de aprobación: {state.x_approval_code}</p>
-      <p>Valor de la transacción: ${state.x_amount} {state.x_currency_code}</p>
-      <p>Factura No.: {state.x_id_invoice}</p>
-      <p>Nombre del comercio: {state.x_description}</p>
-      <button className = 'responseButton' onClick = { ( )=> history.push('/ProductsList') }>Ir al inicio</button>
+      <h4 className = 'responseTitle'>Estado de la transacción</h4>
+      <h5 className = 'responseInfo'>{state.x_response}</h5>
+      <h4 className = 'responseTitle'>Número de referencia</h4>
+      <h5 className = 'responseInfo'>{state.x_ref_payco}</h5>
+      <h4 className = 'responseTitle'>Fecha y hora</h4>
+      <h5 className = 'responseInfo'>{state.x_transaction_date}</h5>
+      <h4 className = 'responseTitle'>Código de aprobación</h4>
+      <h5 className = 'responseInfo'>{state.x_approval_code}</h5>
+      <h4 className = 'responseTitle'>Monto de la transacción</h4>
+      <h5 className = 'responseInfo'>${state.x_amount} {state.x_currency_code}</h5>
+      <h4 className = 'responseTitle'>Factura No.</h4>
+      <h5 className = 'responseInfo'>{state.x_id_invoice}</h5>
+      <h4 className = 'responseTitle'>Nombre del comercio</h4>
+      <h5 className = 'responseInfo'>{state.x_description}</h5>
+      <button className = 'responseButton' onClick = { ( ) => history.push('/ProductsList') }>Ir al inicio</button>
     </div>
   )
 }

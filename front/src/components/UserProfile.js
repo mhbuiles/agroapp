@@ -17,6 +17,7 @@ function ProducerProfile() {
   const lname = useSelector(state => state.authReducer.lname);
   const phone = useSelector(state => state.authReducer.phone);
   const email = useSelector(state => state.authReducer.email);
+  const image = useSelector(state => state.authReducer.image);
 
   const handleEditMode = () => {
     setEditMode(!editMode)
@@ -39,14 +40,21 @@ function ProducerProfile() {
   return (
     <div className='profileContainer ProducerProfile flexible-col justify-content-center align-items-center' >
       <hr></hr>
-      <img className='profilePic' src='https://img2.freepng.es/20180331/fze/kisspng-computer-icons-user-profile-avatar-user-5abf13fab81250.112035111522471930754.jpg' alt = ''></img>
-      {editMode ? <input placeholder="Nombre"/> : <h5>Nombre: {name} {lname}</h5>}
-      {editMode ? <input placeholder="Cel" /> : <h5>Cel: {phone}</h5>}
-      {editMode ? <input placeholder="e-mail" /> : <h5>e-mail: {email}</h5>}
+      <div>
+        <img className='profilePicUser' src={image} alt = ''></img>
+      </div>
+      <div className = 'profileTitleContainer'>
+        <h5 className = 'profileTitle'>Nombre</h5>
+        {editMode ? <input placeholder="Nombre"/> : <h5 className = 'blue'>{name} {lname}</h5>}
+        <h5 className = 'profileTitle'>Celular</h5>
+        {editMode ? <input placeholder="Cel" /> : <h5 className = 'blue'>{phone}</h5>}
+        <h5 className = 'profileTitle'>E-mail</h5>
+        {editMode ? <input placeholder="e-mail" /> : <h5 className = 'blue'>{email}</h5>}
+      </div>
       <hr />
-      <Link to='/ProducerPL'>Mis productos</Link>
+      <Link to='/ProducerPL' className = 'profileButton'>Mis productos</Link>
       <hr />
-      <Link to='/ProducerTL'>Mis transacciones</Link>
+      <Link to='/ProducerTL' className = 'profileButton'>Mis transacciones</Link>
       <hr />
       <fieldset>
         <button className='profileButtonReturn'><Link to='/ProductsList'>Regresar</Link></button>

@@ -73,7 +73,8 @@ function Cart() {
           </div>
         })}
       </div>
-      <h3>Total carrito: $ {total} Pesos</h3>
+      <h3 className = 'cartViewTitle'>Total carrito</h3>
+      <h4 className = 'cartViewInfo'>${total} Pesos</h4>
       <button className = 'cartPay' onClick = {handlePayment}>Pagar</button>
     </div>
   )

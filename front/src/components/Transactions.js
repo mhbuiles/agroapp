@@ -6,7 +6,7 @@ import {
 function Transactions( transacts ) {
 
   return(
-    <div>
+    <div className = 'blue'>
       {transacts.transacts.map( transaction =>
         <Link to={`/ProducerTL/Transactions/${transaction._id}`} key = {transaction._id}><p>Fecha: {transaction.createdAt.slice( 0 , 10 )} Valor: ${transaction.value}</p></Link>
       )}
