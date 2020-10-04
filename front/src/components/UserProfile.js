@@ -26,7 +26,8 @@ function ProducerProfile() {
   function deleteUser() {
       axios({
         method : 'DELETE',
-        url : `http://localhost:8000/users`,
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url : `/users`,
         headers : {
           Authorization : `Bearer ${localStorage.getItem('token')}`
         }

@@ -37,7 +37,8 @@ class ProductsList extends React.Component{
     componentDidMount() {
       axios({
         method : 'GET',
-        url : 'http://localhost:8000/products',
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url : '/products',
         headers : {
           Authorization : `Bearer ${localStorage.getItem('token')}`
         }

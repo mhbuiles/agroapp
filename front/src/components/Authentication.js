@@ -39,13 +39,14 @@ function Authentication( ) {
 
     axios({
       method : 'POST',
-      url : 'http://localhost:8000/users/signin',
+      baseURL: process.env.REACT_APP_SERVER_URL,
+      url : '/users/signin',
       data: state
     })
     .then( ( { data } ) => {
       localStorage.setItem( 'token' , data.token );
-      history.push('/ProductsList');
       dispatch(login( data.user ));
+      history.push('/ProductsList');
     })
     .catch(function (err) {
         const errors = err.response.data;

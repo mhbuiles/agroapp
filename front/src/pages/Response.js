@@ -42,7 +42,8 @@ function Response( { location } ) {
 
         axios({
           method : 'POST',
-          url : 'http://localhost:8000/transactions',
+          baseURL: process.env.REACT_APP_SERVER_URL,
+          url : '/transactions',
           data: userTransact,
           headers : {
             Authorization : `Bearer ${localStorage.getItem('token')}`,

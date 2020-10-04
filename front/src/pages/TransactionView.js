@@ -16,7 +16,8 @@ function TransactionView() {
   useEffect( () => {
     axios({
       method : 'GET',
-      url : `http://localhost:8000/transactions/${id}`,
+      baseURL: process.env.REACT_APP_SERVER_URL,
+      url : `/transactions/${id}`,
       headers : {
         Authorization : `Bearer ${localStorage.getItem('token')}`
       }
@@ -28,7 +29,8 @@ function TransactionView() {
 
       axios({
         method : 'GET',
-        url : `http://localhost:8000/products/transactprods/${prodsb}`,
+        baseURL: process.env.REACT_APP_SERVER_URL,
+        url : `/products/transactprods/${prodsb}`,
         headers : {
           Authorization : `Bearer ${localStorage.getItem('token')}`
         }
