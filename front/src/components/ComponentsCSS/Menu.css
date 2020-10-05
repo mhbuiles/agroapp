@@ -1,0 +1,31 @@
+.headMenu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 3px solid #659BDB;
+}
+
+/* OVERWRITE BOOTSTRAP CLASSES */
+
+.navbar-light .navbar-brand {
+    color: #659BDB;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    background-color: #659BDB;
+    border: 1px solid #659BDB;
+    margin: 2px 0;
+    border-radius: 5px;
+}
+
+.navbar-nav {
+    margin-top: 10px;
+}
+.brand-logo{
+    width:50px;
+}
+.menuTitle{
+  color: #659BDB;
+}

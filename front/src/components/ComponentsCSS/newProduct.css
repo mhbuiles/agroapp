@@ -1,0 +1,59 @@
+
+input, textarea {
+  color: #659BDB;
+}
+.containerNewProd {
+  margin-top: 80px;
+}
+.profilePic {
+  width: 200px;
+  margin-bottom: 20px;
+}
+.buttonReturnNewProd {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin: 15px 5px 15px 5px;
+  width: 180px;
+  background-color: #BC986A;
+  color: #fff;
+}
+.buttonAddNewProd {
+  width: 180px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin: 20px 5px 10px 5px;
+  background-color: #659BDB;
+  color: #fff;
+}
+.formField {
+  margin: 15px 10%;
+  border: 1px solid #000;
+  width: 80%;
+  padding: 10px 10px;
+  background-color: #fbeec1;
+  border: 3px solid #daad86;
+}
+.formInput {
+  text-align: center;
+  width: 90%;
+  border: none;
+}
+.newProdLabel{
+  color: #8D8741;
+  font-weight: bold;
+}
+.newProdTitle{
+  color: #daad86;
+  text-transform: uppercase;
+  font-size: 25px;
+}
+.newProdTxtArea{
+  width: 90%;
+  border: none;
+}
+.fileReadImage{
+  width: 200px;
+  height: 200px;
+}

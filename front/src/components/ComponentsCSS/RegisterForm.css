@@ -1,0 +1,42 @@
+.registerInputForm {
+  text-align: start;
+  margin: 10px auto;
+  width: 270px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 0;
+  font-family: Helvetica;
+}
+.registerButtonSubmit {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+  width: 190px;
+  display: inline-block;
+  margin: 20px 10px 10px 10px;
+}
+.registerContainer {
+  width: 100%;
+  margin-top: 70px;
+  background-color: #f7f7c8;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+.registerButtonReturn {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  width: 190px;
+  display: inline-block;
+  margin: 20px 10px 10px 10px;
+}
+.selectPadding{
+  padding: 8px 0;
+  width: 280px;
+  font-weight: lighter;
+  font-family: Helvetica;
+}

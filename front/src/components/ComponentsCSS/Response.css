@@ -1,0 +1,31 @@
+.responsePage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  padding-top: 20px;
+}
+.responseButton {
+    width:  150px;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 8px;
+    margin: 20px 5px 20px 5px;
+    background-color: #659BDB;
+    color: #fff;
+  }
+  .responseTitle {
+    font-size: 20px;
+    padding: 5px;
+    background-color: #BC986A;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 20px;
+    margin: 15px 0;
+    width: 90%;
+  }
+  .responseInfo{
+    font-size: 18px;
+    color: #659BDB;
+  }

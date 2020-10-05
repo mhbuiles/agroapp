@@ -1,4 +1,10 @@
+
+
 # Agroapp
+
+recursos
+Trello: https://trello.com/b/DzCXfBR6/agroapp
+
 
 ## App del Campo a tu Casa.
 
@@ -6,12 +12,18 @@ Debido a la contingencia sanitaria, las pequeñas y medianas empresas se han vis
 
 ### Funcionalidades:
 
-- Manejo de inventario: cada tienda/superficie manejará lo que tiene en el stock para ofrecerle al cliente final. Si el stock baja después de cierto límite, se puede enviar notificación de realizar solicitud de pedido según sus compras habituales.
+1. Manejo de inventario: cada tienda/superficie manejará lo que tiene en el stock para ofrecerle al cliente final. Si el stock baja después de cierto límite, se puede enviar notificación de realizar solicitud de pedido según sus compras habituales.
 
-- Creación de cronogramas de distribución, rutas y manejo de inventarios para distribuidores.
-- Envío de alerta para recoger pedidos (integración con servicios como Rappi, Domicilios.com o personal propio) y alertas a los distribuidores de parte del productor inicial.
-- Catálogo de compra para el cliente final a través de las superficies de su gusto (inicialmente la más cercana).
-- Pagos entre distribuidores-superficies-clientes en línea.
-- Ubicación en tiempo real o a través de pasos del proceso de envío y cálculo de tiempo estimado en llegar.
-- Creación de perfil para realizar recompras y agendar citas según el uso de cada usuario.
-- Envíos de alertas de productos, ofertas, demoras, publicidad de productos, etc.
+2. Creación de cronogramas de distribución, rutas y manejo de inventarios para distribuidores.
+
+3. Envío de alerta para recoger pedidos (integración con servicios como Rappi, Domicilios.com o personal propio) y alertas a los distribuidores de parte del productor inicial.
+
+4. Catálogo de compra para el cliente final a través de las superficies de su gusto (inicialmente la más cercana).
+
+5. Pagos entre distribuidores-superficies-clientes en línea.
+
+6. Ubicación en tiempo real o a través de pasos del proceso de envío y cálculo de tiempo estimado en llegar.
+
+7. Creación de perfil para realizar recompras y agendar citas según el uso de cada usuario.
+
+8. Envíos de alertas de productos, ofertas, demoras, publicidad de productos, etc.

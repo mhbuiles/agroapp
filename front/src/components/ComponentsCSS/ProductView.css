@@ -1,0 +1,75 @@
+a {
+    color: inherit;
+}
+.prodViewImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+ }
+.prodViewContainer {
+    display: flex;
+    padding: 80px 20px 10px 20px;
+    width: 100%;
+    flex-direction: column;
+}
+.prodViewInfo {
+    font-size: 22px;
+}
+.prodViewTitle {
+    font-size: 25px;
+    padding: 5px;
+    background-color: #BC986A;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 20px;
+}
+.prodViewSmallCont {
+    width: 100%;
+}
+.prodDetails{
+    font-size: 16px;
+    text-decoration: underline;
+    color: coral;
+    text-transform: uppercase;
+}
+.prodViewHeader{
+    color: #659BDB;
+    font-weight: bold;
+}
+.prodViewDesc{
+    font-size: 17px;
+    text-align: left;
+    padding: 5px 10px;
+}
+.prodViewAdd {
+    width:  150px;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 8px;
+    margin: 20px 5px 20px 5px;
+    background-color: #659BDB;
+    color: #fff;
+  }
+.prodViewReturn{
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin: 20px 5px 20px 5px;
+  background-color: #BC986A;
+  color: #fff;
+}
+.prodViewCart{
+  width: 310px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin: 0px 5px 20px 5px;
+  background-color: #8D8741;
+  color: #fff;
+}
+.prodViewImageCont{
+  padding-bottom: 20px;
+  border-radius: 20px;
+  margin: 10px 0 15px 0;
+}

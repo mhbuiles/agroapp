@@ -1,0 +1,35 @@
+a {
+    color: inherit;
+}
+.prodImage {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+ }
+.container {
+    display: block;
+    width: 300px;
+    margin: 10px auto 40px auto;
+    border: 5px solid #DAAD86;
+    border-radius: 20px 5px;
+}
+.prodInfo {
+    font-size: 16px;
+}
+.prodTitle {
+    font-size: 16px;
+    padding: 5px;
+    background-color: #BC986A;
+    font-weight: bold;
+    color: #fff;
+}
+.smallCont {
+    width: 100%;
+    margin: 15px 0;
+}
+.prodDetails{
+    font-size: 16px;
+    text-decoration: underline;
+    color: coral;
+    text-transform: uppercase;
+}

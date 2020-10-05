@@ -1,0 +1,39 @@
+.homeImg {
+    width: 100%;
+    background-image: url("https://i.pinimg.com/originals/49/f5/7f/49f57fc1113ac2cae9322f64cc5ad38a.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #23d7f7;
+}
+.homeLoginCont {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.homeButtonRegister {
+  width: 190px;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+}
+.homeButtonSubmit {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin-top: 20px;
+  width: 190px;
+}
+.homeTitle {
+  font-weight: 600;
+  color: white;
+  text-shadow: 0px 0px 12px #333;
+  margin-top: 50px;
+}

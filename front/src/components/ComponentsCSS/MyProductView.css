@@ -1,0 +1,54 @@
+a {
+    color: inherit;
+}
+.myProdViewImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+ }
+.myProdViewContainer {
+    display: flex;
+    padding: 80px 20px 10px 20px;
+    width: 100%;
+    flex-direction: column;
+}
+.myProdViewInfo {
+    font-size: 22px;
+}
+.myProdViewTitle {
+    font-size: 25px;
+    padding: 5px;
+    background-color: #BC986A;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 20px;
+}
+.myProdViewSmallCont {
+    width: 100%;
+    margin: 15px 0;
+}
+.myProdViewHeader{
+    color: #659BDB;
+    font-weight: bold;
+}
+.myProdViewDesc{
+    font-size: 17px;
+    text-align: left;
+    padding: 5px 10px;
+}
+.myProdViewDelete {
+    width: 150px;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 8px;
+    margin: 20px 5px 20px 5px;
+    background-color: #de1010;
+    color: #fff;
+  }
+.myProductViewButtonReturn {
+  border-radius: 5px;
+  border: none;
+  padding: 8px 8px;
+  margin: 15px 5px 15px 5px;
+  width: 150px;
+}
